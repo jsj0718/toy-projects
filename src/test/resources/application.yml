@@ -13,12 +13,18 @@ spring:
   jpa:
     properties:
       hibernate:
-#        dialect: org.hibernate.dialect.MySQL8Dialect
+        #        dialect: org.hibernate.dialect.MySQL8Dialect
         ddl-auto: create
     show-sql: true
 
-  profiles:
-    include: oauth
-
   session:
     store-type: jdbc
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: test
+            client-secret: test
+            scope: profile, email
