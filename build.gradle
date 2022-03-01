@@ -26,7 +26,8 @@ dependencies {
     implementation 'org.springframework.session:spring-session-jdbc'
     implementation 'org.projectlombok:lombok'
 
-    runtimeOnly 'com.h2database:h2'
+    implementation 'com.h2database:h2'
+    implementation 'mysql:mysql-connector-java'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
