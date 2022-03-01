@@ -20,11 +20,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .headers().frameOptions().disable()
                 .and()
                     .authorizeRequests()
-                    .antMatchers("/", "/css/**", "/js/**", "/images/**", "/h2-console/**", "/login").permitAll()
+                    .antMatchers("/", "/css/**", "/js/**", "/images/**", "/h2-console/**").permitAll()
                     .antMatchers("/api/v1/**").hasRole(Role.USER.name()) //USER만 허용
                     .anyRequest().authenticated() //GUEST, USER 허용
-                .and()
-                    .oauth2Login().loginPage("/")
                 .and()
                     .logout()
                         .logoutSuccessUrl("/")
