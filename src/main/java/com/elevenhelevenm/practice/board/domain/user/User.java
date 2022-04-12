@@ -1,5 +1,6 @@
 package com.elevenhelevenm.practice.board.domain.user;
 
+import com.elevenhelevenm.practice.board.domain.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-public class User {
+public class User extends BaseTimeEntity {
 
     @Id @GeneratedValue
     private Long id;
