@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html th:replace="~{layout/base :: layout(~{::h1}, ~{::div})}" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>회원가입 페이지</title>
 </head>
 <body>
-<h1>회원가입 페이지</h1>
-<hr/>
-<form action="/joinProc" method="post">
-    <input type="text" name="username" placeholder="Username"/> <br/>
-    <input type="password" name="password" placeholder="Password"/> <br/>
-    <input type="email" name="email" placeholder="Email"/> <br/>
-    <button>회원가입</button>
-</form>
 
-<a href="/login">로그인</a>
+<h1>회원가입 페이지</h1>
+
+<hr/>
+
+<div>
+    <form action="/joinProc" method="post">
+        <input type="text" name="username" placeholder="Username"/> <br/>
+        <input type="password" name="password" placeholder="Password"/> <br/>
+        <input type="email" name="email" placeholder="Email"/> <br/>
+        <button>회원가입</button>
+    </form>
+
+    <a href="/login">로그인</a>
+    <a href="/">게시판</a>
+</div>
 </body>
 </html>

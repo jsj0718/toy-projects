@@ -1,12 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html th:replace="~{layout/base :: layout(~{::h1}, ~{::div})}" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Index</title>
 </head>
 <body>
-    <h1>게시판 프로젝트</h1>
+<h1>게시판 프로젝트</h1>
 
-    <a href="/logout">로그아웃</a>
+<div>
+    <div th:if="${username} ne null">
+        Logged in as: <span id="user" th:text="${username}">아이디</span>
+        <a href="/logout">로그아웃</a>
+        <hr>
+        <a href="/board/save">글 쓰기</a>
+    </div>
+    <div th:if="${username} eq null">
+        <a href="/login">로그인</a>
+        <a href="/join">회원가입</a>
+        <hr>
+    </div>
+
+    <div>
+        <!-- 목록 출력 영역 -->
+        <table>
+            <thead>
+            <tr>
+                <th>게시글번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>최종수정일</th>
+            </tr>
+            </thead>
+            <tbody id="tbody" th:each="board : ${boards}">
+            <tr>
+                <td th:text="${board.id}">아이디</td>
+                <td><a th:text="${board.title}" th:href="@{/board/update/{id}(id=${board.id})}">제목</a></td>
+                <td th:text="${board.author}">작가</td>
+                <!--                    <td th:text="${board.modifiedDate}">수정일</td>-->
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 package com.elevenhelevenm.practice.board.exception.handler;
 
 import com.elevenhelevenm.practice.board.exception.UserException;
-import com.elevenhelevenm.practice.board.web.dto.response.ErrorResponse;
+import com.elevenhelevenm.practice.board.web.dto.response.error.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

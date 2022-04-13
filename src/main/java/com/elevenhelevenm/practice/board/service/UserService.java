@@ -4,7 +4,7 @@ import com.elevenhelevenm.practice.board.domain.user.User;
 import com.elevenhelevenm.practice.board.exception.UserException;
 import com.elevenhelevenm.practice.board.exception.errorcode.UserErrorCode;
 import com.elevenhelevenm.practice.board.repository.UserRepository;
-import com.elevenhelevenm.practice.board.web.dto.request.UserSaveRequestDto;
+import com.elevenhelevenm.practice.board.web.dto.request.user.UserSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

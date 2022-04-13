@@ -1,4 +1,4 @@
-package com.elevenhelevenm.practice.board.web.dto.request;
+package com.elevenhelevenm.practice.board.web.dto.request.user;
 
 import com.elevenhelevenm.practice.board.domain.user.Role;
 import com.elevenhelevenm.practice.board.domain.user.User;

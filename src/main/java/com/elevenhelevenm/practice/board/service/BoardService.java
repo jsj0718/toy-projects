@@ -1,10 +1,19 @@
 package com.elevenhelevenm.practice.board.service;
 
+import com.elevenhelevenm.practice.board.domain.board.Board;
 import com.elevenhelevenm.practice.board.repository.BoardRepository;
-import com.elevenhelevenm.practice.board.web.dto.request.BoardSaveRequestDto;
+import com.elevenhelevenm.practice.board.web.dto.request.board.BoardSaveRequestDto;
+import com.elevenhelevenm.practice.board.web.dto.request.board.BoardUpdateRequestDto;
+import com.elevenhelevenm.practice.board.web.dto.response.board.BoardResponseDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.swing.*;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -16,5 +25,33 @@ public class BoardService {
     @Transactional
     public Long save(BoardSaveRequestDto requestDto) {
         return boardRepository.save(requestDto.toEntity()).getId();
+    }
+
+    @Transactional
+    public Long update(Long id, BoardUpdateRequestDto requestDto) {
+        Board board = boardRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 게시글입니다. id : " + id));
+
+        board.update(requestDto.getTitle(), requestDto.getContent());
+
+        return board.getId();
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        Board board = boardRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않은 게시글입니다. id : " + id));
+
+        boardRepository.delete(board);
+    }
+
+    public Page<BoardResponseDto> findAllDesc(@PageableDefault(size = 10) Pageable pageable) {
+        return boardRepository.findAll(pageable)
+                .map(BoardResponseDto::new);
+    }
+
+    public BoardResponseDto findById(Long id) {
+        return new BoardResponseDto(boardRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않은 게시글입니다. id : " + id)));
     }
 }

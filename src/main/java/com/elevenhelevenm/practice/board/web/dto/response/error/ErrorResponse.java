@@ -1,10 +1,9 @@
-package com.elevenhelevenm.practice.board.web.dto.response;
+package com.elevenhelevenm.practice.board.web.dto.response.error;
 
 import com.elevenhelevenm.practice.board.exception.errorcode.UserErrorCode;
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.time.LocalDateTime;
 

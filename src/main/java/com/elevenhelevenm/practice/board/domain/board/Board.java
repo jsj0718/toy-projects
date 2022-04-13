@@ -1,16 +1,15 @@
 package com.elevenhelevenm.practice.board.domain.board;
 
 import com.elevenhelevenm.practice.board.domain.BaseTimeEntity;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Builder
 @Entity
 public class Board extends BaseTimeEntity {
 
@@ -24,6 +23,13 @@ public class Board extends BaseTimeEntity {
     private String content;
 
     private String author;
+
+    @Builder
+    public Board(String title, String content, String author) {
+        this.title = title;
+        this.content = content;
+        this.author = author;
+    }
 
     public void update(String title, String content) {
         this.title = title;
