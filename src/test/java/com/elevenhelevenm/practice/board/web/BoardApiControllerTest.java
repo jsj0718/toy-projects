@@ -1,5 +1,6 @@
-package com.elevenhelevenm.practice.board.domain.board;
+package com.elevenhelevenm.practice.board.web;
 
+import com.elevenhelevenm.practice.board.domain.board.Board;
 import com.elevenhelevenm.practice.board.repository.BoardRepository;
 import com.elevenhelevenm.practice.board.service.BoardService;
 import com.elevenhelevenm.practice.board.web.dto.request.board.BoardSaveRequestDto;

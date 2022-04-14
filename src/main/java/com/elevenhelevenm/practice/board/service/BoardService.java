@@ -7,13 +7,11 @@ import com.elevenhelevenm.practice.board.web.dto.request.board.BoardUpdateReques
 import com.elevenhelevenm.practice.board.web.dto.response.board.BoardResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.swing.*;
-import java.util.List;
 
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -46,6 +44,9 @@ public class BoardService {
     }
 
     public Page<BoardResponseDto> findAllDesc(@PageableDefault(size = 10) Pageable pageable) {
+        int page = (pageable.getPageNumber() == 0) ? 0 : (pageable.getPageNumber() - 1);
+        pageable = PageRequest.of(page, pageable.getPageSize(), pageable.getSort());
+
         return boardRepository.findAll(pageable)
                 .map(BoardResponseDto::new);
     }
