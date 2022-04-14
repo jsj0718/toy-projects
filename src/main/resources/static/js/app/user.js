@@ -1,4 +1,4 @@
-var board = {
+var user = {
     init : function() {
         var _this = this;
 
@@ -72,4 +72,4 @@ var board = {
     }
 };
 
-board.init();
+user.init();
