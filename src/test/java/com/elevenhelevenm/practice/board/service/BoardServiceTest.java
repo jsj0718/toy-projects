@@ -1,9 +1,14 @@
 package com.elevenhelevenm.practice.board.service;
 
 import com.elevenhelevenm.practice.board.domain.board.Board;
+import com.elevenhelevenm.practice.board.domain.user.User;
+import com.elevenhelevenm.practice.board.exception.CustomException;
+import com.elevenhelevenm.practice.board.exception.errorcode.BoardErrorCode;
+import com.elevenhelevenm.practice.board.exception.errorcode.UserErrorCode;
 import com.elevenhelevenm.practice.board.repository.BoardRepository;
 import com.elevenhelevenm.practice.board.web.dto.request.board.BoardUpdateRequestDto;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,6 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.doAnswer;
 
@@ -81,9 +87,9 @@ class BoardServiceTest {
                 .author(author)
                 .build());
 
-        //when
         given(boardRepository.findById(id)).willReturn(board);
 
+        //when
         doAnswer(invocation -> given(boardRepository.findById(id)).willReturn(Optional.empty()))
                 .when(boardRepository).delete(board.get());
 
@@ -96,4 +102,57 @@ class BoardServiceTest {
         Optional<Board> findBoard = boardRepository.findById(id);
         assertThat(findBoard).isEmpty();
     }
+
+    @Test
+    @DisplayName("조회 시 게시글이 없으면 오류가 발생한다.")
+    void findByIdException() {
+        //given
+        Long id = 1L;
+
+        given(boardRepository.findById(id)).willReturn(Optional.empty());
+
+        //when
+        CustomException e = assertThrows(CustomException.class, () -> boardService.findById(id));
+
+        //then
+        assertThat(e.getErrorCode()).isEqualTo(BoardErrorCode.NotFoundBoardId);
+    }
+
+    @Test
+    @DisplayName("수정 시 게시글이 없으면 오류가 발생한다.")
+    void updateException() {
+        //given
+        Long id = 1L;
+        String title = "title";
+        String content = "content";
+
+        BoardUpdateRequestDto requestDto = BoardUpdateRequestDto.builder()
+                .title(title)
+                .content(content)
+                .build();
+
+        given(boardRepository.findById(id)).willReturn(Optional.empty());
+
+        //when
+        CustomException e = assertThrows(CustomException.class, () -> boardService.update(id, requestDto));
+
+        //then
+        assertThat(e.getErrorCode()).isEqualTo(BoardErrorCode.NotFoundBoardId);
+    }
+
+    @Test
+    @DisplayName("삭제 시 게시글이 없으면 오류가 발생한다.")
+    void deleteException() {
+        //given
+        Long id = 1L;
+
+        given(boardRepository.findById(id)).willReturn(Optional.empty());
+
+        //when
+        CustomException e = assertThrows(CustomException.class, () -> boardService.delete(id));
+
+        //then
+        assertThat(e.getErrorCode()).isEqualTo(BoardErrorCode.NotFoundBoardId);
+    }
+    
 }

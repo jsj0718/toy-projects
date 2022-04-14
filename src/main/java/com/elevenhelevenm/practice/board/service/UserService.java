@@ -1,7 +1,7 @@
 package com.elevenhelevenm.practice.board.service;
 
 import com.elevenhelevenm.practice.board.domain.user.User;
-import com.elevenhelevenm.practice.board.exception.UserException;
+import com.elevenhelevenm.practice.board.exception.CustomException;
 import com.elevenhelevenm.practice.board.exception.errorcode.UserErrorCode;
 import com.elevenhelevenm.practice.board.repository.UserRepository;
 import com.elevenhelevenm.practice.board.web.dto.request.user.UserSaveRequestDto;
@@ -25,8 +25,14 @@ public class UserService {
 
         User user = requestDto.toEntity();
 
+        //아이디가 같은 경우
         if (!userRepository.findByUsername(user.getUsername()).isEmpty()) {
-            throw new UserException(UserErrorCode.FoundDuplicatedId);
+            throw new CustomException(UserErrorCode.FoundDuplicatedId);
+        }
+        
+        //이메일이 같은 경우
+        if (!userRepository.findByEmail(user.getEmail()).isEmpty()) {
+            throw new CustomException(UserErrorCode.FoundDuplicatedEmail);
         }
 
         return userRepository.save(user).getId();

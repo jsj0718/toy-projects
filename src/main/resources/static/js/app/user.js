@@ -2,10 +2,11 @@ var user = {
     init : function() {
         var _this = this;
 
-        $('#btn-save').on('click', function() {
-            _this.save();
+        $('#btn-join').on('click', function() {
+            _this.join();
         });
 
+/*
         $('#btn-update').on('click', function() {
             _this.update();
         });
@@ -13,27 +14,48 @@ var user = {
         $('#btn-delete').on('click', function() {
             _this.delete();
         });
+*/
     },
-    save : function() {
+    join : function() {
         var data = {
-            title : $('#title').val(),
-            content : $('#content').val(),
-            author : $('#author').val()
+            username : $('#username').val(),
+            password : $('#password').val(),
+            email : $('#email').val()
         };
+
+        if (!data['username']) {
+            alert('아이디를 입력하세요.');
+            $('#username').focus();
+            return;
+        }
+
+        if (!data['password']) {
+            alert('비밀번호를 입력하세요.');
+            $('#password').focus();
+            return;
+        }
+
+        if (!data['email']) {
+            alert('이메일을 입력하세요.');
+            $('#email').focus();
+            return;
+        }
 
         $.ajax({
             type: 'POST',
-            url: '/api/v1/board',
+            url: '/api/v1/joinProc',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
-            alert('글이 등록되었습니다.');
-            window.location.href = '/';
+            alert('회원가입이 완료되었습니다.');
+            window.location.href = '/login';
         }).fail(function (error) {
-            alert(JSON.stringify(error));
+            console.log(error);
+            $('#join-exception').text(error['responseJSON']['message']);
         });
     },
+/*
     update : function() {
         var data = {
             title : $('#title').val(),
@@ -70,6 +92,7 @@ var user = {
             alert(JSON.stringify(error));
         });
     }
+*/
 };
 
 user.init();

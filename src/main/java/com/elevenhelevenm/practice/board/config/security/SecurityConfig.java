@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .headers().frameOptions().disable()
             .and()
                 .authorizeRequests()
-                    .antMatchers("/", "/css/**", "/js/**", "/images/**", "/h2-console/**", "/join/**", "/joinProc", "/login/**").permitAll()
+                    .antMatchers("/", "/css/**", "/js/**", "/images/**", "/h2-console/**", "/join/**", "/api/v1/joinProc", "/login/**").permitAll()
                     .antMatchers("/admin/**").access(Role.ADMIN.name())
                     .anyRequest().authenticated()
             .and()

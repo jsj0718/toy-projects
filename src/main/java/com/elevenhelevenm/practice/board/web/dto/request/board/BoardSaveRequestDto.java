@@ -6,12 +6,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Data
 public class BoardSaveRequestDto {
 
+    @NotBlank
     private String title;
+
+    @NotBlank
     private String content;
+
+    @NotBlank
     private String author;
 
     @Builder

@@ -1,10 +1,7 @@
 package com.elevenhelevenm.practice.board.domain.user;
 
 import com.elevenhelevenm.practice.board.domain.BaseTimeEntity;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -16,10 +13,13 @@ public class User extends BaseTimeEntity {
     @Id @GeneratedValue
     private Long id;
 
+    @Column(nullable = false)
     private String username;
 
+    @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
     private String email;
 
     @Enumerated(EnumType.STRING)
