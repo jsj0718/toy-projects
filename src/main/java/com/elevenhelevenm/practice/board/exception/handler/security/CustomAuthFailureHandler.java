@@ -21,6 +21,7 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+        //로그인 예외 발생 시 세션 해제
         httpSession.removeAttribute("user");
 
         String errorMsg;

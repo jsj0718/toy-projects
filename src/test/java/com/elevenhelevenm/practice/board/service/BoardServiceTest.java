@@ -1,14 +1,11 @@
 package com.elevenhelevenm.practice.board.service;
 
 import com.elevenhelevenm.practice.board.domain.board.Board;
-import com.elevenhelevenm.practice.board.domain.user.User;
 import com.elevenhelevenm.practice.board.exception.CustomException;
 import com.elevenhelevenm.practice.board.exception.errorcode.BoardErrorCode;
-import com.elevenhelevenm.practice.board.exception.errorcode.UserErrorCode;
 import com.elevenhelevenm.practice.board.repository.BoardRepository;
 import com.elevenhelevenm.practice.board.web.dto.request.board.BoardUpdateRequestDto;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

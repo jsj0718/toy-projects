@@ -1,4 +1,4 @@
-package com.elevenhelevenm.practice.board.web;
+package com.elevenhelevenm.practice.board.web.controller.board;
 
 import com.elevenhelevenm.practice.board.config.security.auth.LoginUser;
 import com.elevenhelevenm.practice.board.config.security.dto.SessionUser;

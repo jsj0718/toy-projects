@@ -32,7 +32,6 @@ public class ExceptionControllerAdvice extends ResponseEntityExceptionHandler {
 
         ex.getFieldErrors().forEach(e -> {
             log.info("Field Error : {}, {}", e.getField(), e.getDefaultMessage());
-
             errors.get("message").put(e.getField(), e.getDefaultMessage());
         });
 

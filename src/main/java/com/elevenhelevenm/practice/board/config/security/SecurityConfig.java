@@ -1,12 +1,9 @@
 package com.elevenhelevenm.practice.board.config.security;
 
-import com.elevenhelevenm.practice.board.config.security.auth.PrincipalDetails;
-import com.elevenhelevenm.practice.board.config.security.auth.PrincipalDetailsService;
 import com.elevenhelevenm.practice.board.domain.user.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;

@@ -88,6 +88,7 @@ class UserApiControllerTest {
         assertThat(user.get().getEmail()).isEqualTo(email);
     }
 
+/*
     @Test
     @DisplayName("회원가입 시 아이디, 비밀번호, 이메일이 빈 값이거나 Null이면 오류가 발생한다.")
     void joinProcExceptionByBlank() throws Exception {
@@ -107,4 +108,5 @@ class UserApiControllerTest {
                         .content(new ObjectMapper().writeValueAsString(requestDto)))
                 .andExpect(status().isBadRequest());
     }
+*/
 }

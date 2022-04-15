@@ -3,14 +3,15 @@
 <head>
 </head>
 <body>
+
 <h1>로그인 페이지</h1>
 
 <div>
-    <!-- 시큐리티는 x-www-form-url-encoded 타입만 인식 -->
     <div>
         <div th:if="${param.error}">
             <p style="color : red"  th:text="${param.exception}"></p>
         </div>
+
         <form th:action="@{/loginProc}" method="post">
             <div>
                 <label th:for="username">아이디</label>
@@ -29,5 +30,6 @@
     <a href="/join">회원가입</a>
     <a href="/">게시판</a>
 </div>
+
 </body>
 </html>

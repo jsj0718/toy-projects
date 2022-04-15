@@ -1,4 +1,4 @@
-package com.elevenhelevenm.practice.board.web;
+package com.elevenhelevenm.practice.board.web.controller.user;
 
 import com.elevenhelevenm.practice.board.config.security.auth.LoginUser;
 import com.elevenhelevenm.practice.board.config.security.dto.SessionUser;
@@ -6,7 +6,6 @@ import com.elevenhelevenm.practice.board.service.UserService;
 import com.elevenhelevenm.practice.board.web.dto.request.user.UserSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

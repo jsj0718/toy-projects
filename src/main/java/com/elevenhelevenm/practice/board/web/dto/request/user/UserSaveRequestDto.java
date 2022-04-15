@@ -2,13 +2,11 @@ package com.elevenhelevenm.practice.board.web.dto.request.user;
 
 import com.elevenhelevenm.practice.board.domain.user.Role;
 import com.elevenhelevenm.practice.board.domain.user.User;
-import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 @RequiredArgsConstructor

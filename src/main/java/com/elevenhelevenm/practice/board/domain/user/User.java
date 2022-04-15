@@ -1,7 +1,10 @@
 package com.elevenhelevenm.practice.board.domain.user;
 
 import com.elevenhelevenm.practice.board.domain.BaseTimeEntity;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 

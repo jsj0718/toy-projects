@@ -110,7 +110,6 @@ var board = {
             window.location.href = "/";
         }).fail(function (error) {
             alert('글을 삭제하는데 실패했습니다.');
-            alert(JSON.stringify(error));
         });
     }
 };
