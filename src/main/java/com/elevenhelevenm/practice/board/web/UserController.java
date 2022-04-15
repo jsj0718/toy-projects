@@ -1,34 +1,25 @@
 package com.elevenhelevenm.practice.board.web;
 
-import com.elevenhelevenm.practice.board.service.UserService;
-import com.elevenhelevenm.practice.board.web.dto.request.UserSaveRequestDto;
+import com.elevenhelevenm.practice.board.config.security.auth.LoginUser;
+import com.elevenhelevenm.practice.board.config.security.dto.SessionUser;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @RequiredArgsConstructor
 @Controller
-public class IndexController {
-
-    private final UserService userService;
-
-    @GetMapping("/")
-    public String index() {
-        return "index";
-    }
+public class UserController {
 
     @GetMapping("/login")
     public String login (
             @RequestParam(value = "error", required = false) String error,
             @RequestParam(value = "exception", required = false) String exception,
-            Model model,
-            Authentication authentication) {
+            @LoginUser SessionUser user,
+            Model model) {
 
-        if (authentication != null) {
+        if (user != null) {
             return "redirect:/";
         }
 
@@ -37,18 +28,17 @@ public class IndexController {
             model.addAttribute("exception", exception);
         }
 
-        return "login";
+        return "user/login";
     }
 
     @GetMapping("/join")
-    public String join() {
-        return "join";
-    }
+    public String join(@LoginUser SessionUser user) {
 
-    @PostMapping("/joinProc")
-    public String joinProc(UserSaveRequestDto requestDto) {
-        userService.join(requestDto);
-        return "redirect:/";
+        if (user != null) {
+            return "redirect:/";
+        }
+
+        return "user/join";
     }
 
 }

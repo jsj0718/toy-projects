@@ -2,6 +2,7 @@ package com.elevenhelevenm.practice.board.config.security;
 
 import com.elevenhelevenm.practice.board.config.security.auth.PrincipalDetails;
 import com.elevenhelevenm.practice.board.config.security.auth.PrincipalDetailsService;
+import com.elevenhelevenm.practice.board.domain.user.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,13 +28,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .cors().disable()
                 .csrf().disable()
                 .headers().frameOptions().disable()
             .and()
                 .authorizeRequests()
-                    .antMatchers("/", "/user/**").authenticated()
-                    .antMatchers("/admin/**").access("ROLE_ADMIN")
-                    .anyRequest().permitAll()
+                    .antMatchers("/", "/css/**", "/js/**", "/images/**", "/h2-console/**", "/join/**", "/api/v1/joinProc/**", "/login/**").permitAll()
+                    .antMatchers("/admin/**").access(Role.ADMIN.name())
+                    .anyRequest().authenticated()
+            .and()
+                .logout()
+                    .logoutSuccessUrl("/")
             .and()
                 .formLogin()
                 .loginPage("/login")
