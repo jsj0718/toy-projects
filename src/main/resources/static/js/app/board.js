@@ -31,7 +31,31 @@ var board = {
             alert('글이 등록되었습니다.');
             window.location.href = '/';
         }).fail(function (error) {
-            alert(JSON.stringify(error));
+            var errorMessage = error['responseJSON']['message'];
+
+            if (typeof errorMessage === "string") {
+                $('#board-save-exception').text(errorMessage);
+            } else {
+                $('#board-save-exception').text('');
+            }
+
+            if (errorMessage.hasOwnProperty('title')) {
+                $('#board-save-title-exception').text(errorMessage['title']);
+            } else {
+                $('#board-save-title-exception').text('');
+            }
+
+            if (errorMessage.hasOwnProperty('author')) {
+                $('#board-save-author-exception').text(errorMessage['author']);
+            } else {
+                $('#board-save-author-exception').text('');
+            }
+
+            if (errorMessage.hasOwnProperty('content')) {
+                $('#board-save-content-exception').text(errorMessage['content']);
+            } else {
+                $('#board-save-content-exception').text('');
+            }
         });
     },
     update : function() {
@@ -52,7 +76,25 @@ var board = {
             alert('글이 수정되었습니다.');
             window.location.href = "/";
         }).fail(function (error) {
-            alert(JSON.stringify(error));
+            var errorMessage = error['responseJSON']['message'];
+
+            if (typeof errorMessage === "string") {
+                $('#board-update-exception').text(errorMessage);
+            } else {
+                $('#board-update-exception').text('');
+            }
+
+            if (errorMessage.hasOwnProperty('title')) {
+                $('#board-update-title-exception').text(errorMessage['title']);
+            } else {
+                $('#board-update-title-exception').text('');
+            }
+
+            if (errorMessage.hasOwnProperty('content')) {
+                $('#board-update-content-exception').text(errorMessage['content']);
+            } else {
+                $('#board-update-content-exception').text('');
+            }
         });
     },
     delete : function() {
@@ -67,6 +109,7 @@ var board = {
             alert('글이 삭제되었습니다.');
             window.location.href = "/";
         }).fail(function (error) {
+            alert('글을 삭제하는데 실패했습니다.');
             alert(JSON.stringify(error));
         });
     }

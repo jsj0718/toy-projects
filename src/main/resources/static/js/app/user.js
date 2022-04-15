@@ -23,24 +23,6 @@ var user = {
             email : $('#email').val()
         };
 
-        if (!data['username']) {
-            alert('아이디를 입력하세요.');
-            $('#username').focus();
-            return;
-        }
-
-        if (!data['password']) {
-            alert('비밀번호를 입력하세요.');
-            $('#password').focus();
-            return;
-        }
-
-        if (!data['email']) {
-            alert('이메일을 입력하세요.');
-            $('#email').focus();
-            return;
-        }
-
         $.ajax({
             type: 'POST',
             url: '/api/v1/joinProc',
@@ -51,8 +33,31 @@ var user = {
             alert('회원가입이 완료되었습니다.');
             window.location.href = '/login';
         }).fail(function (error) {
-            console.log(error);
-            $('#join-exception').text(error['responseJSON']['message']);
+            var errorMessage = error['responseJSON']['message'];
+
+            if (typeof errorMessage === "string") {
+                $('#join-exception').text(errorMessage);
+            } else {
+                $('#join-exception').text('');
+            }
+
+            if (errorMessage.hasOwnProperty('username')) {
+                $('#username-exception').text(errorMessage['username']);
+            } else {
+                $('#username-exception').text('');
+            }
+
+            if (errorMessage.hasOwnProperty('password')) {
+                $('#password-exception').text(errorMessage['password']);
+            } else {
+                $('#password-exception').text('');
+            }
+
+            if (errorMessage.hasOwnProperty('email')) {
+                $('#email-exception').text(errorMessage['email']);
+            } else {
+                $('#email-exception').text('');
+            }
         });
     },
 /*

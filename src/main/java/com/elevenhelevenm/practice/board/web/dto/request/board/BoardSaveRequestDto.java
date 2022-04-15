@@ -12,13 +12,13 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class BoardSaveRequestDto {
 
-    @NotBlank
+    @NotBlank(message = "게시글 제목은 필수사항입니다.")
     private String title;
 
-    @NotBlank
+    @NotBlank(message = "게시글 내용은 필수사항입니다.")
     private String content;
 
-    @NotBlank
+    @NotBlank(message = "작성자는 필수사항입니다.")
     private String author;
 
     @Builder

@@ -1,18 +1,19 @@
 package com.elevenhelevenm.practice.board.exception.handler;
 
 import com.elevenhelevenm.practice.board.exception.CustomException;
-import com.elevenhelevenm.practice.board.exception.errorcode.ValidErrorCode;
 import com.elevenhelevenm.practice.board.web.dto.response.error.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 @RestControllerAdvice
@@ -24,17 +25,17 @@ public class ExceptionControllerAdvice extends ResponseEntityExceptionHandler {
         return ErrorResponse.toResponseEntity(e.getErrorCode());
     }
 
-    // TODO: 2022-04-14 Validation Handler 구현하기 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        log.error("handleMethodArgumentNotValidException");
+        Map<String, Map<String, String>> errors = new HashMap<>();
+        errors.put("message", new HashMap<>());
 
-        StringBuilder sb = new StringBuilder();
-        for (ObjectError error : ex.getAllErrors()) {
-            sb.append(error.getDefaultMessage());
-            sb.append("\n");
-        }
+        ex.getFieldErrors().forEach(e -> {
+            log.info("Field Error : {}, {}", e.getField(), e.getDefaultMessage());
 
-        return ErrorResponse.toResponseEntity(ValidErrorCode.FieldNotValid, sb.toString());
+            errors.get("message").put(e.getField(), e.getDefaultMessage());
+        });
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
     }
 }

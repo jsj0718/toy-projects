@@ -11,10 +11,10 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class BoardUpdateRequestDto {
 
-    @NotBlank
+    @NotBlank(message = "게시글 제목은 필수사항입니다.")
     private String title;
 
-    @NotBlank
+    @NotBlank(message = "게시글 내용은 필수사항입니다.")
     private String content;
 
     @Builder

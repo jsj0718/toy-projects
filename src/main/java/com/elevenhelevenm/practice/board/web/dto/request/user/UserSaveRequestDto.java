@@ -9,18 +9,20 @@ import lombok.RequiredArgsConstructor;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @RequiredArgsConstructor
 @Data
 public class UserSaveRequestDto {
 
-    @NotBlank
+    @Pattern(regexp = "[\\S]+", message = "아이디는 필수사항이며, 공백은 포함될 수 없습니다.")
     private String username;
 
-    @NotBlank(message = "비밀번호는 필수 사항입니다.")
+    @Pattern(regexp = "[\\S]+", message = "비밀번호는 필수사항이며, 공백은 포함될 수 없습니다.")
     private String password;
 
     @Email(message = "이메일 주소가 유효하지 않습니다.")
+    @Pattern(regexp = "[\\S]+", message = "이메일은 필수사항이며, 공백은 포함될 수 없습니다.")
     private String email;
 
     @Builder

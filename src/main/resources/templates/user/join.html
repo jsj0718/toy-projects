@@ -9,12 +9,20 @@
 <hr/>
 
 <div>
-    <p id="join-exception"></p>
+    <p id="join-exception" style="color : red"></p>
 
     <form>
-        <input type="text" name="username" id="username" placeholder="Username"/> <br/>
-        <input type="password" name="password" id="password" placeholder="Password"/> <br/>
-        <input type="email" name="email" id="email" placeholder="Email"/> <br/>
+        <input type="text" name="username" id="username" placeholder="Username"/>
+        <p id="username-exception" style="color : red"></p>
+        <br/>
+
+        <input type="password" name="password" id="password" placeholder="Password"/>
+        <p id="password-exception" style="color : red"></p>
+        <br/>
+
+        <input type="email" name="email" id="email" placeholder="Email"/>
+        <p id="email-exception" style="color : red"></p>
+        <br/>
     </form>
 
     <button type="button" id="btn-join">회원가입</button>

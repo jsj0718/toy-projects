@@ -9,7 +9,7 @@
     <!-- 시큐리티는 x-www-form-url-encoded 타입만 인식 -->
     <div>
         <div th:if="${param.error}">
-            <p th:text="${param.exception}"></p>
+            <p style="color : red"  th:text="${param.exception}"></p>
         </div>
         <form th:action="@{/loginProc}" method="post">
             <div>

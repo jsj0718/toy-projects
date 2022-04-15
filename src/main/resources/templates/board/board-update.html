@@ -7,29 +7,31 @@
 <h1>게시글 수정</h1>
 
 <div>
-    <div>
-        <form>
-            <div>
-                <label for="title">글 번호</label>
-                <input type="text" id="id" th:value="${board.id}" readonly>
-            </div>
-            <div>
-                <label for="title">제목</label>
-                <input type="text" id="title" th:value="${board.title}">
-            </div>
-            <div>
-                <label for="author"> 작성자 </label>
-                <input type="text" id="author" th:value="${board.author}" readonly>
-            </div>
-            <div>
-                <label for="content"> 내용 </label>
-                <textarea id="content" th:text="${board.content}">내용</textarea>
-            </div>
-        </form>
-        <a href="/">취소</a>
-        <button type="button" id="btn-update">수정</button>
-        <button type="button" id="btn-delete">삭제</button>
-    </div>
+    <p id="board-update-exception" style="color : red"></p>
+
+    <form>
+        <div>
+            <label for="title">글 번호</label>
+            <input type="text" id="id" th:value="${board.id}" readonly>
+        </div>
+        <div>
+            <label for="title">제목</label>
+            <input type="text" id="title" th:value="${board.title}">
+            <p id="board-update-title-exception" style="color : red"></p>
+        </div>
+        <div>
+            <label for="author"> 작성자 </label>
+            <input type="text" id="author" th:value="${board.author}" readonly>
+        </div>
+        <div>
+            <label for="content"> 내용 </label>
+            <textarea id="content" th:text="${board.content}">내용</textarea>
+            <p id="board-update-content-exception" style="color : red"></p>
+        </div>
+    </form>
+    <a href="/">취소</a>
+    <button type="button" id="btn-update">수정</button>
+    <button type="button" id="btn-delete">삭제</button>
 </div>
 
 </body>
