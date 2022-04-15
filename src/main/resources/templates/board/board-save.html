@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/base :: layout(~{::h1}, ~{::div})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+
+<h1>게시글 등록</h1>
+
+<div>
+    <p id="board-save-exception" style="color : red"></p>
+
+    <form>
+        <div>
+            <label for="title">제목</label>
+            <input type="text" id="title" placeholder="제목을 입력하세요">
+            <p id="board-save-title-exception" style="color : red"></p>
+        </div>
+        <div>
+            <label for="author">작성자</label>
+            <input type="text" id="author" th:value="${user.username}" placeholder="작성자를 입력하세요" readonly>
+            <p id="board-save-author-exception" style="color : red"></p>
+        </div>
+        <div>
+            <label for="content">내용</label>
+            <textarea id="content" placeholder="내용을 입력하세요"></textarea>
+            <p id="board-save-content-exception" style="color : red"></p>
+        </div>
+    </form>
+
+    <a href="/">취소</a>
+    <button type="button" id="btn-save">등록</button>
+</div>
+
+</body>
+</html>

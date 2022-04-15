@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/base :: layout(~{::h1}, ~{::div})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+
+<h1>로그인 페이지</h1>
+
+<div>
+    <div>
+        <div th:if="${param.error}">
+            <p style="color : red"  th:text="${param.exception}"></p>
+        </div>
+
+        <form th:action="@{/loginProc}" method="post">
+            <div>
+                <label th:for="username">아이디</label>
+                <input type="text" name="username" placeholder="Username">
+            </div>
+
+            <div>
+                <label th:for="password">비밀번호</label>
+                <input type="password" name="password" placeholder="Password">
+            </div>
+
+            <button type="submit">로그인</button>
+        </form>
+    </div>
+
+    <a href="/join">회원가입</a>
+    <a href="/">게시판</a>
+</div>
+
+</body>
+</html>

@@ -1,24 +1,28 @@
 package com.elevenhelevenm.practice.board.domain.board;
 
-import com.elevenhelevenm.practice.board.domain.member.Member;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import com.elevenhelevenm.practice.board.domain.BaseTimeEntity;
+import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-@Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@NoArgsConstructor
-public class Board {
+@Entity
+public class Board extends BaseTimeEntity {
 
     @Id @GeneratedValue
     private Long id;
 
+    @Column(length = 500, nullable = false)
     private String title;
 
+    @Column(nullable = false)
     private String content;
 
+    @Column(nullable = false)
     private String author;
 
     @Builder
