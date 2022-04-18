@@ -25,12 +25,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .cors().disable()
-                .csrf().disable()
-                .headers().frameOptions().disable()
+                .cors().disable() //교차 출저 리소스 공유
+                .csrf().disable() //사이트 간 요청 위조
+                .headers().frameOptions().disable() //X-Frame-Options header 추가 부분 disable (iframe 사용을 위함)
             .and()
                 .authorizeRequests()
-                    .antMatchers("/", "/css/**", "/js/**", "/images/**", "/h2-console/**", "/join/**", "/api/v1/joinProc/**", "/login/**").permitAll()
+                    .antMatchers("/css/**", "/js/**", "/images/**", "/h2-console/**", "/", "/login/**", "/join/**", "/api/v1/joinProc/**").permitAll()
                     .antMatchers("/admin/**").access(Role.ADMIN.name())
                     .anyRequest().authenticated()
             .and()
