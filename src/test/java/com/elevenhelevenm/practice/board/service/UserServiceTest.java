@@ -52,9 +52,7 @@ class UserServiceTest {
         given(userRepository.findByUsername(username)).willReturn(user);
 
         //when
-        CustomException e = assertThrows(CustomException.class, () -> {
-            userService.join(requestDto);
-        });
+        CustomException e = assertThrows(CustomException.class, () -> userService.join(requestDto));
 
         //then
         assertThat(e.getErrorCode()).isEqualTo(UserErrorCode.FoundDuplicatedId);

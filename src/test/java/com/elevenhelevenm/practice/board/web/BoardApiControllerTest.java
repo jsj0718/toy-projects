@@ -113,6 +113,7 @@ class BoardApiControllerTest {
                 .andExpect(status().isOk())
                 .andReturn();
 
+        // TODO: 2022-04-18 테스트 코드 수정 필요
         String json = result.getResponse().getContentAsString();
         json = json.substring(json.indexOf("["), json.indexOf("]") + 1);
 
