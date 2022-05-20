@@ -1,6 +1,6 @@
-var board = {
+const board = {
     init : function() {
-        var _this = this;
+        const _this = this;
 
         $('#btn-save').on('click', function() {
             _this.save();
@@ -15,7 +15,10 @@ var board = {
         });
     },
     save : function() {
-        var data = {
+        const token = $("meta[name='_csrf']").attr("content");
+        const header = $("meta[name='_csrf_header']").attr("content");
+
+        const data = {
             title : $('#title').val(),
             content : $('#content').val(),
             author : $('#author').val()
@@ -23,15 +26,18 @@ var board = {
 
         $.ajax({
             type: 'POST',
-            url: '/api/v1/board',
+            url: '/api/v2/board',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(data)
+            data: JSON.stringify(data),
+            beforeSend : function(xhr) {
+                xhr.setRequestHeader(header, token)
+            }
         }).done(function() {
             alert('글이 등록되었습니다.');
             window.location.href = '/';
         }).fail(function (error) {
-            var errorMessage = error['responseJSON']['message'];
+            const errorMessage = error['responseJSON']['message'];
 
             if (typeof errorMessage === "string") {
                 $('#board-save-exception').text(errorMessage);
@@ -59,24 +65,30 @@ var board = {
         });
     },
     update : function() {
-        var data = {
+        const token = $("meta[name='_csrf']").attr("content");
+        const header = $("meta[name='_csrf_header']").attr("content");
+
+        const data = {
             title : $('#title').val(),
             content : $('#content').val()
         };
 
-        var id = $('#id').val();
+        const id = $('#id').val();
 
         $.ajax({
             type: 'PUT',
-            url: '/api/v1/board/' + id,
+            url: '/api/v2/board/' + id,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(data)
+            data: JSON.stringify(data),
+            beforeSend : function(xhr) {
+                xhr.setRequestHeader(header, token)
+            }
         }).done(function() {
             alert('글이 수정되었습니다.');
             window.location.href = "/";
         }).fail(function (error) {
-            var errorMessage = error['responseJSON']['message'];
+            const errorMessage = error['responseJSON']['message'];
 
             if (typeof errorMessage === "string") {
                 $('#board-update-exception').text(errorMessage);
@@ -98,13 +110,19 @@ var board = {
         });
     },
     delete : function() {
-        var id = $('#id').val();
+        const token = $("meta[name='_csrf']").attr("content");
+        const header = $("meta[name='_csrf_header']").attr("content");
+
+        const id = $('#id').val();
 
         $.ajax({
             type: 'DELETE',
             url: '/api/v1/board/' + id,
             dataType: 'json',
-            contentType: 'application/json; charset=utf-8'
+            contentType: 'application/json; charset=utf-8',
+            beforeSend : function(xhr) {
+                xhr.setRequestHeader(header, token)
+            }
         }).done(function() {
             alert('글이 삭제되었습니다.');
             window.location.href = "/";

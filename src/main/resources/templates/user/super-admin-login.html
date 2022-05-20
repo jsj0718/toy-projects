@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/base :: layout(~{::h1}, ~{::div})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+
+<h1>Super Admin 로그인 페이지</h1>
+
+<div>
+    <div>
+        <div th:if="${param.error}">
+            <p style="color : red"  th:text="${param.exception}"></p>
+        </div>
+
+        <form th:action="@{/api/v1/login}" method="post">
+            <button type="submit">로그인</button>
+        </form>
+    </div>
+
+    <a href="/join">회원가입</a>
+    <a href="/">게시판</a>
+</div>
+
+</body>
+</html>

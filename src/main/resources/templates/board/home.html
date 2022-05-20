@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/base :: layout(~{::h1}, ~{::div})}"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+</head>
+<body>
+
+<h1>게시판 프로젝트</h1>
+
+<div>
+
+    <a sec:authorize="isAnonymous()" th:href="@{/login}"}>로그인</a>
+    <a sec:authorize="isAnonymous()" th:href="@{/join}"}>회원가입</a>
+
+    <a sec:authorize="hasAnyRole('SUPER_ADMIN', 'MEMBER')" th:href="@{/member}">MEMBER-Page</a>
+    <a sec:authorize="hasAnyRole('SUPER_ADMIN', 'MANAGER')" th:href="@{/manager}">MANAGER-Page</a>
+    <a sec:authorize="hasAnyRole('SUPER_ADMIN', 'ADMIN')" th:href="@{/admin}">ADMIN-Page</a>
+
+    <a sec:authorize="isAuthenticated()" th:href="@{/board/save}"}>글쓰기</a>
+    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="POST">
+        <sec:csrfInput/>
+        <button type="submit">logout</button>
+    </form>
+
+    <div>
+        <!-- 목록 출력 영역 -->
+        <table>
+            <thead>
+                <tr>
+                    <th>게시글번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>최종수정일</th>
+                </tr>
+            </thead>
+            <tbody id="tbody" th:each="board : ${boards}">
+                <tr>
+                    <td th:text="${board.id}">아이디</td>
+                    <td><a th:text="${board.title}" th:href="@{/board/select/{id}(id=${board.id})}">제목</a></td>
+                    <td th:text="${board.author}">작가</td>
+                    <td th:text="${board.modifiedDate}">수정일</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 페이지네이션 -->
+        <nav>
+            <ul class="pagination"
+                th:with="start=${T(java.lang.Math).floor(boards.number/10) * 10 + 1},
+                                last=(${start + 9 < boards.totalPages ? start + 9 : boards.totalPages})">
+
+                <li class="page-item">
+                    <a class="page-link" th:href="@{/(page=1)}" aria-label="First">
+                        <span aria-hidden="true">First</span>
+                    </a>
+                </li>
+
+                <li class="page-item" th:classappend="${boards.first} ? 'disabled'">
+                    <a class="page-link" th:href="${boards.first} ? '#' : @{/(page=${boards.number})}"
+                       aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                <li class="page-item" th:each="page : ${#numbers.sequence(start, last)}"
+                    th:classappend="${page == boards.number + 1} ? 'active'">
+                    <a class="page-link" th:href="@{/(page=${page})}" th:text="${page}">n</a>
+                </li>
+
+                <li class="page-item" th:classappend="${boards.last} ? 'disabled'">
+                    <a class="page-link" th:href="${boards.last} ? '#' : @{/(page=${boards.number + 2})}"
+                       aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" th:href="@{/(page=${boards.totalPages})}" aria-label="Last">
+                        <span aria-hidden="true">Last</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+</body>
+</html>
