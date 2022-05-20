@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid Practice</title>
+
+    <!-- EasyUI -->
+    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/color.css">
+    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/demo/demo.css">
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+
+    <!-- Moment -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
+
+    <!-- Alertifyjs -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/> <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/> <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/> <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/> <!-- RTL version -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/> <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css"/> <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/> <!-- Bootstrap theme -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <!-- Date Range Picker -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+</head>
+<body>
+
+<input type="text" name="daterange" />
+<button type="button" id="daterangeButton">날짜 알림 버튼</button>
+
+<div id="dg"></div>
+<button type="button" id="datagridButton">그리드 로드 버튼</button>
+
+<script th:inline="none">
+    //----------------------------로컬 함수----------------------------//
+    //날짜 형식 변환 (Formatter)
+    const dateFormatter = function(value, row, index) {
+        return moment(value).format('YYYY-MM-DD hh:mm');
+    };
+
+    //파일 -> 버튼 변환 (Formatter)
+    const fileFormatter = function(value, row, index) {
+        if (value) return `<button type="button" class="fileButton" data-id="file${row.id}">다운로드</button>`;
+
+        return '<button type="button" disabled>다운로드</button>';
+	};
+
+	//파일 버튼 클릭 이벤트 (Click Event)
+	const fileButtonClickEvent = function() {
+        alertify.alert($(this).data('id'));
+	};
+
+	//취소 버튼 변환 (Formatter)
+	const cancelFormatter = function(value, row, index) {
+	    if (value) return '<button type="button" disabled>취소</button>';
+
+	    return '<button type="button" class="cancelButton">취소</button>';
+	};
+
+    //취소 버튼 클릭 이벤트 (Click Event)
+    const cancelButtonClickEvent = function() {
+        $(this).prop('disabled', true);
+    };
+
+    //날짜 알람 버튼 (Alarm Event)
+    const daterangeButtonClickEvent = function() {
+        const daterange = $('input[name="daterange"]').data('daterangepicker');
+        alertify.alert(`${moment(daterange['startDate']).format('YYYY-MM-DD')} ~ ${moment(daterange['endDate']).format('YYYY-MM-DD')}`);
+    };
+
+    //데이터 그리드 로드 함수 (DataGrid Load Event)
+    const datagridButtonClickEvent = function() {
+        $('#dg').datagrid('options').url = '/gridData';
+        $('#dg').datagrid('options').method = 'get';
+        $('#dg').datagrid('reload');
+    };
+
+    //----------------------------Data Range Picker----------------------------//
+    $('input[name="daterange"]').daterangepicker({
+        opens: 'left',
+        startDate: moment().startOf('day').subtract(7, 'day'),
+        endDate: moment().startOf('day'),
+    }, function(start, end, label) {
+        alertify.alert(`${start.format('YYYY-MM-DD')} ~ ${end.format('YYYY-MM-DD')}`);
+    });
+
+
+    //----------------------------Data Grid----------------------------//
+    $('#dg').datagrid({
+        columns:[[
+            {field:'workName',title:'작업명',width:100,align:'center'},
+            {field:'workStatus',title:'작업상태',width:'10%',align:'center'},
+            {field:'workType',title:'작업유형',width:'10%',align:'center'},
+            {field:'registrationDate',title:'등록시간',width:'20%',align:'center',formatter: dateFormatter},
+            {field:'completeDate',title:'완료시간',width:'20%',align:'center',formatter: dateFormatter},
+            {field:'isRequiredFile',title:'요청파일',width:'10%',align:'center',formatter: fileFormatter},
+            {field:'isResultFile',title:'결과파일',width:'10%',align:'center',formatter: fileFormatter},
+            {field:'isCanceled',title:'취소',width:'10%',align:'center', formatter: cancelFormatter}
+        ]],
+        onBeforeLoad: function() {
+            console.log('before load!');
+        },
+        onLoadSuccess: function() {
+            console.log('load success!');
+        }
+    });
+
+
+    //----------------------------Event----------------------------//
+    $(document).on('click', '.fileButton', fileButtonClickEvent);
+
+    $(document).on('click', '.cancelButton', cancelButtonClickEvent);
+
+    $('#daterangeButton').click(daterangeButtonClickEvent);
+
+    $('#datagridButton').click(datagridButtonClickEvent);
+</script>
+</body>
+</html>

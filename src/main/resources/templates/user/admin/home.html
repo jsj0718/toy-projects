@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/base :: layout(~{::h1}, ~{::div})}"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+</head>
+<body>
+
+<h1>관리자 페이지</h1>
+
+<div>
+    <a th:href="@{/}">홈페이지</a>
+    <a th:href="@{/admin/h2-console}">DataBase</a>
+
+    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="POST">
+        <sec:csrfInput/>
+        <button type="submit">logout</button>
+    </form>
+
+    <!-- 목록 출력 영역 -->
+    <table>
+        <thead>
+            <tr>
+                <th>유저번호</th>
+                <th>아이디</th>
+                <th>이메일</th>
+                <th>가입일</th>
+                <th>권한</th>
+                <th>삭제 기능</th>
+            </tr>
+        </thead>
+        <tbody id="tbody" th:each="user : ${users}">
+            <tr>
+                <td th:text="${user.id}">유저번호</td>
+                <td><a th:text="${user.username}">아이디</a></td>
+                <td th:text="${user.email}">이메일</td>
+                <td th:text="${user.createdDate}">가입일</td>
+                <td th:text="${user.role}">권한</td>
+                <td><button type="button" th:onclick="|javascript:user.userDelete('${user.id}')|">삭제</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

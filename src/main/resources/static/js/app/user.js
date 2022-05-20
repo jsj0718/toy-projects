@@ -1,29 +1,36 @@
-var user = {
+const user = {
     init : function() {
-        var _this = this;
+        const _this = this;
 
         $('#btn-join').on('click', function() {
             _this.join();
         });
     },
     join : function() {
-        var data = {
+        const token = $("meta[name='_csrf']").attr("content");
+        const header = $("meta[name='_csrf_header']").attr("content");
+
+        const data = {
             username : $('#username').val(),
             password : $('#password').val(),
-            email : $('#email').val()
+            email : $('#email').val(),
+            role : $('input[name=role]:checked').val()
         };
 
         $.ajax({
             type: 'POST',
-            url: '/api/v1/joinProc',
+            url: '/api/v2/joinProc',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(data)
+            data: JSON.stringify(data),
+            beforeSend : function(xhr) {
+                xhr.setRequestHeader(header, token)
+            }
         }).done(function() {
             alert('회원가입이 완료되었습니다.');
             window.location.href = '/login';
         }).fail(function (error) {
-            var errorMessage = error['responseJSON']['message'];
+            const errorMessage = error['responseJSON']['message'];
 
             if (typeof errorMessage === "string") {
                 $('#join-exception').text(errorMessage);
@@ -48,6 +55,25 @@ var user = {
             } else {
                 $('#email-exception').text('');
             }
+        });
+    },
+    userDelete : function(id) {
+        const token = $("meta[name='_csrf']").attr("content");
+        const header = $("meta[name='_csrf_header']").attr("content");
+
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/v1/user/' + id,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            beforeSend : function(xhr) {
+              xhr.setRequestHeader(header, token)
+            }
+        }).done(function() {
+            alert('계정이 삭제되었습니다.');
+            window.location.href = "/admin";
+        }).fail(function (error) {
+            alert('계정을 삭제하는데 실패했습니다.');
         });
     }
 };
