@@ -1,9 +1,0 @@
-# Project exclude paths
-/.gradle/
-build/
-
-### IntelliJ IDEA ###
-.idea
-
-### Properties ###
-application-oauth.yml
