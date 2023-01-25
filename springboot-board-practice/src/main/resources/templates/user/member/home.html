@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/base :: layout(~{::h1}, ~{::div})}"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+</head>
+<body>
+
+<h1>일반 유저 페이지</h1>
+
+<div>
+    <a th:href="@{/}">홈페이지</a>
+
+    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="POST">
+        <sec:csrfInput/>
+        <button type="submit">logout</button>
+    </form>
+</body>
+</html>
