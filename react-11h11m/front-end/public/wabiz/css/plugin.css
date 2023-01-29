@@ -807,10 +807,10 @@
     cursor:pointer;
 }
 .ag-icon-tree-open {
-    background:url(../images/Ico-Select-Down-Arrow-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Select-Down-Arrow-16x16.svg) no-repeat;
 }
 .ag-icon-tree-closed {
-    background:url(../images/Ico-Select-Right-Arrow-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Select-Right-Arrow-16x16.svg) no-repeat;
 }
 .fa-file {
     display:inline-block;
@@ -819,7 +819,7 @@
     margin-top:-3px;
     margin-right:16px;
     font-size:0;
-    background:url(../images/Ico-Material-Preview-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Material-Preview-16x16.svg) no-repeat;
     vertical-align:middle;
     cursor:pointer;
 }
@@ -1148,7 +1148,7 @@
     height:16px;
     margin-top:-3px;
     margin-left:6px;
-    background:url(../images/Ico-Tooltip-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Tooltip-16x16.svg) no-repeat;
     vertical-align:middle;
     cursor:default;
 }
@@ -1841,20 +1841,20 @@
     width:52px;
     height:52px;
     margin:auto;
-    background:url(../images/Ico-Notify-Message-52x52.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Notify-Message-52x52.svg) no-repeat;
     border-radius:18px;
     box-shadow:0px 10px 20px rgba(170, 232, 242, 0.5);
 }
 .alertify-notifier .ajs-message.ajs-success:after {
-    background:url(../images/Ico-Notify-Success-52x52.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Notify-Success-52x52.svg) no-repeat;
     box-shadow:0px 10px 20px rgba(170, 223, 183, 0.5);
 }
 .alertify-notifier .ajs-message.ajs-warning:after {
-    background:url(../images/Ico-Notify-Warning-52x52.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Notify-Warning-52x52.svg) no-repeat;
     box-shadow:0px 10px 20px rgba(255, 217, 148, 0.5);
 }
 .alertify-notifier .ajs-message.ajs-error:after {
-    background:url(../images/Ico-Notify-Error-52x52.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Notify-Error-52x52.svg) no-repeat;
     box-shadow:0px 10px 20px rgba(255, 192, 177, 0.5);
 }
 /* ------------------------- Alertify : End ------------------------- */
@@ -1925,10 +1925,10 @@
     width:16px;
     height:16px;
     margin:auto;
-    background:url(../images/Ico-Select-Down-Arrow-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Select-Down-Arrow-16x16.svg) no-repeat;
 }
 .select2-container.select2-container--open .select2-selection--single .select2-selection__arrow b {
-    background:url(../images/Ico-Select-Up-Arrow-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Select-Up-Arrow-16x16.svg) no-repeat;
 }
 
 
@@ -2021,7 +2021,7 @@
     color:#adb5bd;
 }
 .select2-container.select2-container--disabled .select2-selection--single .select2-selection__arrow b {
-    background:url(../images/Ico-Select-Down-Arrow-Disabled-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Select-Down-Arrow-Disabled-16x16.svg) no-repeat;
 }
 /* Disabled : End */
 
@@ -2045,7 +2045,7 @@
     width:16px;
     height:16px;
     margin:auto;
-    background:url(../images/Ico-Input-Search-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Input-Search-16x16.svg) no-repeat;
 }
 .select2-container .select2-search--dropdown .select2-search__field {
     width:100%;
@@ -2092,12 +2092,12 @@
     height:16px;
     width:16px;
     margin:auto;
-    background:url(../images/Ico-Input-Delete-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Input-Delete-16x16.svg) no-repeat;
     cursor:pointer;
     -webkit-appearance:none;
 }
 .select2-dropdown .select2-search--dropdown input[type="search"]::-webkit-search-cancel-button:hover {
-    background:url(../images/Ico-Input-Delete-Hover-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Input-Delete-Hover-16x16.svg) no-repeat;
 }
 /* Search : End */
 
@@ -2145,7 +2145,7 @@
     margin-left:6px;
 /*    background:rgba(255,255,255,0.8);*/
 /*    border-radius:4px;*/
-    background:url(../images/Ico-Tag-Deleted-16x16.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Ico-Tag-Deleted-16x16.svg) no-repeat 50% 50%;
     text-indent:-9999px;
     text-align:center;
     cursor:pointer;
@@ -2421,11 +2421,11 @@
 }
 .daterangepicker .calendar-table tr:first-child th:first-child {
     right:33px;
-    background:url(../images/Ico-DatePicker-Prev-Arrow-20x20.svg) no-repeat center;
+    background:url(public/wabiz/images/Ico-DatePicker-Prev-Arrow-20x20.svg) no-repeat center;
 }
 .daterangepicker .calendar-table tr:first-child th:last-child {
     right:9px;
-    background:url(../images/Ico-DatePicker-Next-Arrow-20x20.svg) no-repeat center;
+    background:url(public/wabiz/images/Ico-DatePicker-Next-Arrow-20x20.svg) no-repeat center;
 }
 .daterangepicker .calendar-table tr:first-child th:first-child span {
     background-position:-280px -280px;
@@ -2524,7 +2524,7 @@
     border:1px solid #dde2e5;
     font-size:12px;
     line-height:26px;
-    background:url(../images/Ico-Select-Down-Arrow-16x16.svg) no-repeat 79% 50%;
+    background:url(public/wabiz/images/Ico-Select-Down-Arrow-16x16.svg) no-repeat 79% 50%;
     color:#9fa3a8;
     outline:none;
     cursor:pointer;
@@ -2693,10 +2693,10 @@
     margin:auto;
 }
 .carousel-control.left .sr-only {
-    background:url(../images/Ico-Slide-Prev-32x32.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Ico-Slide-Prev-32x32.svg) no-repeat 50% 50%;
 }
 .carousel-control.right .sr-only {
-    background:url(../images/Ico-Slide-Next-32x32.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Ico-Slide-Next-32x32.svg) no-repeat 50% 50%;
 }
 .carousel-indicators {
     position:absolute;
@@ -2747,15 +2747,15 @@
 }
 .sortable .item-sortable .ico-drag {
     left:12px;
-    background:url(../images/Ico-Sortable-Drag-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Sortable-Drag-16x16.svg) no-repeat;
 }
 .sortable .item-sortable .ico-delete {
     right:16px;
-    background:url(../images/Ico-File-Delete-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-File-Delete-16x16.svg) no-repeat;
     cursor:pointer;
 }
 .sortable .item-sortable .ico-delete:hover {
-    background:url(../images/Ico-File-Delete-Hover-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-File-Delete-Hover-16x16.svg) no-repeat;
 }
 .sortable .item-sortable .fc-1 {
     display:inline-block;

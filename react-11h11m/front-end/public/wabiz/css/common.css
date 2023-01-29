@@ -968,10 +968,10 @@ span.fz-12 {
     width:72px;
     min-width:auto;
     height:72px;
-    background:url(../images/Btn-Add-72x72.svg) no-repeat;
+    background:url(public/wabiz/images/Btn-Add-72x72.svg) no-repeat;
 }
 .btn-add:disabled {
-    background:url(../images/Btn-Add-Disabled-72x72.svg) no-repeat;
+    background:url(public/wabiz/images/Btn-Add-Disabled-72x72.svg) no-repeat;
 }
 
 
@@ -985,7 +985,7 @@ span.fz-12 {
 
 /* Ico-Filter : Start */
 .btn-tertiary-mint.btn-ico .ico-filter {
-    background:url(../images/Ico-Btn-Filter-Mint-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Btn-Filter-Mint-16x16.svg) no-repeat;
 }
 /* Ico-Filter : End */
 
@@ -993,10 +993,10 @@ span.fz-12 {
 
 /* Ico-Refresh : Start */
 .btn-secondary-outline.btn-ico .ico-refresh {
-    background:url(../images/Btn-Ico-Refresh-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Btn-Ico-Refresh-16x16.svg) no-repeat;
 }
 .btn-secondary-outline.btn-ico:disabled .ico-refresh {
-    background:url(../images/Btn-Ico-Refresh-Disabled-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Btn-Ico-Refresh-Disabled-16x16.svg) no-repeat;
 }
 /* Ico-Refresh : End */
 
@@ -1004,10 +1004,10 @@ span.fz-12 {
 
 /* Ico-Refresh : Start */
 .btn-secondary-outline.btn-ico .ico-download {
-    background:url(../images/Btn-Ico-Download-16x16.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Btn-Ico-Download-16x16.svg) no-repeat 50% 50%;
 }
 .btn-secondary-outline.btn-ico:disabled .ico-download {
-    background:url(../images/Btn-Ico-Download-Disabled-16x16.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Btn-Ico-Download-Disabled-16x16.svg) no-repeat 50% 50%;
 }
 /* Ico-Refresh : End */
 
@@ -1015,10 +1015,10 @@ span.fz-12 {
 
 /* Ico-More : Start */
 .btn-secondary-txt.btn-ico .ico-more {
-    background:url(../images/Btn-Ico-More-16x16.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Btn-Ico-More-16x16.svg) no-repeat 50% 50%;
 }
 .btn-secondary-txt.btn-ico:disabled .ico-more {
-    background:url(../images/Btn-Ico-More-Disabled-16x16.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Btn-Ico-More-Disabled-16x16.svg) no-repeat 50% 50%;
 }
 /* Ico-More : End */
 
@@ -1234,7 +1234,7 @@ input[type="radio"] {
     right:16px;
     bottom:0;
     margin:auto;
-    background:url(../images/Ico-Input-Error-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Input-Error-16x16.svg) no-repeat;
 }
 
 
@@ -1260,11 +1260,11 @@ input[type="radio"] {
     bottom:0;
     right:16px;
     margin:auto;
-    background:url(../images/Ico-Input-Delete-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Input-Delete-16x16.svg) no-repeat;
     cursor:pointer;
 }
 .input-group .inner-input-group .ico-delete:hover {
-    background:url(../images/Ico-Input-Delete-Hover-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Input-Delete-Hover-16x16.svg) no-repeat;
 }
 .input-group .inner-input-group .tf-comm:focus ~ .ico-delete,
 .input-group .inner-input-group .tf-textarea:focus ~ .ico-delete {
@@ -1428,13 +1428,13 @@ input[type="radio"] {
     bottom:0;
     left:16px;
     margin:auto;
-    background:url(../images/Ico-Input-Search-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Input-Search-16x16.svg) no-repeat;
 }
 
 
 
 .input-group.comp-search .tf-comm:disabled ~ .ico-search {
-    background:url(../images/Ico-Input-Search-Disabled-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Input-Search-Disabled-16x16.svg) no-repeat;
 }
 
 
@@ -1456,7 +1456,7 @@ input[type="radio"] {
 .input-group.comp-search .opt-selectbox .comp-no-data .ico-no-search {
     width:64px;
     height:64px;
-    background:url(../images/Ico-No-Search-64x64.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-No-Search-64x64.svg) no-repeat;
 }
 .input-group.comp-search .opt-selectbox .comp-no-data .fc-3 {
     margin-top:4px;
@@ -1506,7 +1506,7 @@ input[type="radio"] {
     right:5px;
     width:16px;
     height:16px;
-    background:url(../images/Ico-Tag-Deleted-16x16.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Ico-Tag-Deleted-16x16.svg) no-repeat 50% 50%;
     cursor:pointer;
 }
 .input-group.comp-search .search-tag .input-group {
@@ -1588,7 +1588,7 @@ input[type="radio"] {
 }
 .comp-checkbox input[type="checkbox"]:checked ~ label:before {
     border:1px solid #00b8b8;
-    background:url(../images/Ico-CheckBox-20x20.svg) no-repeat center #00c4c4;
+    background:url(public/wabiz/images/Ico-CheckBox-20x20.svg) no-repeat center #00c4c4;
 }
 
 
@@ -1623,16 +1623,16 @@ input[type="radio"] {
     transition:all 0.2s ease;
 }
 .comp-checkbox input[type="checkbox"] ~ label.label .ico-male {
-    background:url(../images/Ico-Checkbox-Male-60x60.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Ico-Checkbox-Male-60x60.svg) no-repeat 50% 50%;
 }
 .comp-checkbox input[type="checkbox"] ~ label.label .ico-female {
-    background:url(../images/Ico-Checkbox-Female-60x60.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Ico-Checkbox-Female-60x60.svg) no-repeat 50% 50%;
 }
 .comp-checkbox input[type="checkbox"]:checked ~ label.label .ico-male {
-    background:url(../images/Ico-Checkbox-Male-Checked-60x60.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Ico-Checkbox-Male-Checked-60x60.svg) no-repeat 50% 50%;
 }
 .comp-checkbox input[type="checkbox"]:checked ~ label.label .ico-female {
-    background:url(../images/Ico-Checkbox-Female-Checked-60x60.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Ico-Checkbox-Female-Checked-60x60.svg) no-repeat 50% 50%;
 }
 .comp-checkbox input[type="checkbox"] ~ label.label .fz-14 {
     padding:25px 0;
@@ -1670,7 +1670,7 @@ input[type="radio"] {
 }
 .comp-checkbox input[type="checkbox"]:disabled:checked ~ label:last-child:before {
     border:1px solid #8de0e0;
-    background:url(../images/Ico-CheckBox-20x20.svg) no-repeat center #8ce4e4;
+    background:url(public/wabiz/images/Ico-CheckBox-20x20.svg) no-repeat center #8ce4e4;
 }
 /* Disabled : End */
 
@@ -1687,10 +1687,10 @@ input[type="radio"] {
     height:16px;
 }
 .comp-checkbox.small input[type="checkbox"]:checked ~ label:before {
-    background:url(../images/Ico-CheckBox-16x16.svg) no-repeat center #00c4c4;
+    background:url(public/wabiz/images/Ico-CheckBox-16x16.svg) no-repeat center #00c4c4;
 }
 .comp-checkbox.small input[type="checkbox"]:disabled:checked ~ label:before {
-    background:url(../images/Ico-CheckBox-16x16.svg) no-repeat center #8ce4e4;
+    background:url(public/wabiz/images/Ico-CheckBox-16x16.svg) no-repeat center #8ce4e4;
 }
 
 
@@ -1705,10 +1705,10 @@ input[type="radio"] {
     height:24px;
 }
 .comp-checkbox.large input[type="checkbox"]:checked ~ label:before {
-    background:url(../images/Ico-CheckBox-24x24.svg) no-repeat center #00c4c4;
+    background:url(public/wabiz/images/Ico-CheckBox-24x24.svg) no-repeat center #00c4c4;
 }
 .comp-checkbox.large input[type="checkbox"]:disabled:checked ~ label:before {
-    background:url(../images/Ico-CheckBox-24x24.svg) no-repeat center #8ce4e4;
+    background:url(public/wabiz/images/Ico-CheckBox-24x24.svg) no-repeat center #8ce4e4;
 }
 /* Size : End */
 
@@ -1986,24 +1986,24 @@ input[type="radio"] {
 }
 .comp-dropdown .dropdown-toggle .box-left .ico-analysis-filter {
     margin-top:-4px;
-    background:url(../images/Btn-Ico-Analysis-Filter-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Btn-Ico-Analysis-Filter-16x16.svg) no-repeat;
 }
 .comp-dropdown .dropdown-toggle .box-left .ico-performance-item {
     margin-top:0;
-    background:url(../images/Btn-Ico-Performance-Item-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Btn-Ico-Performance-Item-16x16.svg) no-repeat;
 }
 .comp-dropdown .dropdown-toggle .box-left .ico-filter {
     margin-top:-4px;
-    background:url(../images/Ico-Btn-Filter-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Btn-Filter-16x16.svg) no-repeat;
 }
 .comp-dropdown .dropdown-toggle .box-left .ico-download {
-    background:url(../images/Btn-Ico-Download-16x16.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Btn-Ico-Download-16x16.svg) no-repeat 50% 50%;
 }
 .comp-dropdown .dropdown-toggle .ico-more {
     width:20px;
     height:20px;
     margin-right:0;
-    background:url(../images/Btn-More-Ico-20x20.svg) no-repeat;
+    background:url(public/wabiz/images/Btn-More-Ico-20x20.svg) no-repeat;
 }
 .comp-dropdown .dropdown-toggle .fc-1 ~ .badge {
     width:6px;
@@ -2029,10 +2029,10 @@ input[type="radio"] {
     width:16px;
     height:16px;
     margin:auto;
-    background:url(../images/Ico-Select-Down-Arrow-16x16.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Ico-Select-Down-Arrow-16x16.svg) no-repeat 50% 50%;
 }
 .comp-dropdown.open .dropdown-toggle .box-right .ico-arrow {
-    background:url(../images/Ico-Select-Up-Arrow-16x16.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Ico-Select-Up-Arrow-16x16.svg) no-repeat 50% 50%;
 }
 
 
@@ -2059,7 +2059,7 @@ input[type="radio"] {
     right:16px;
     bottom:0;
     margin:auto;
-    background:url(../images/Ico-Select-Right-Arrow-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Select-Right-Arrow-16x16.svg) no-repeat;
 }
 
 
@@ -2206,7 +2206,7 @@ input[type="radio"] {
     bottom:0;
     left:16px;
     margin:auto;
-    background:url(../images/Ico-FileUpload-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-FileUpload-16x16.svg) no-repeat;
 }
 .comp-file-upload .ico-file:after {
     content:'';
@@ -2258,7 +2258,7 @@ input[type="radio"] {
     border:1px solid #e8ebed;
 }
 .comp-file-upload.disabled .ico-file {
-    background:url(../images/Ico-FileUpload-Disabled-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-FileUpload-Disabled-16x16.svg) no-repeat;
 }
 .comp-file-upload.disabled .btn {
     background:#c8ccd0;
@@ -2341,7 +2341,7 @@ input[type="radio"] {
     left:0;
     width:28px;
     height:28px;
-    background:url(../images/Ico-File-List-28x28.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-File-List-28x28.svg) no-repeat;
 }
 .comp-file-list .file-item .fc-2 {
     display:inline;
@@ -2353,18 +2353,18 @@ input[type="radio"] {
     margin-right:14px;
 }
 .comp-file-list .file-item .ico-download {
-    background:url(../images/Ico-File-Download-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-File-Download-16x16.svg) no-repeat;
     cursor:pointer;
 }
 .comp-file-list .file-item .ico-download:hover {
-    background:url(../images/Ico-File-Download-Hover-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-File-Download-Hover-16x16.svg) no-repeat;
 }
 .comp-file-list .file-item .ico-delete {
-    background:url(../images/Ico-File-Delete-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-File-Delete-16x16.svg) no-repeat;
     cursor:pointer;
 }
 .comp-file-list .file-item .ico-delete:hover {
-    background:url(../images/Ico-File-Delete-Hover-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-File-Delete-Hover-16x16.svg) no-repeat;
 }
 .comp-file-list .file-item .ico-download ~ .ico-delete {
     margin-left:8px;
@@ -2388,7 +2388,7 @@ input[type="radio"] {
     top:8px;
     right:8px;
     z-index:1;
-    background:url(../images/Ico-Delete-File-Thum-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Delete-File-Thum-16x16.svg) no-repeat;
 }
 /* ------------------------- Comp-File-List : End ------------------------- */
 
@@ -2415,7 +2415,7 @@ input[type="radio"] {
     bottom:0;
     z-index:1;
     margin:auto;
-    background:url(../images/Ico-Calendar-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Calendar-16x16.svg) no-repeat;
 }
 .comp-datepicker .tf-comm {
     display:inline-block;
@@ -2464,10 +2464,10 @@ input[type="radio"] {
     background:#f2f4f6;
 }
 .comp-datepicker .btn.btn-prev {
-    background:url(../images/Ico-DatePicker-Prev-Arrow-40x40.svg) no-repeat center #fafafb;
+    background:url(public/wabiz/images/Ico-DatePicker-Prev-Arrow-40x40.svg) no-repeat center #fafafb;
 }
 .comp-datepicker .btn.btn-next {
-    background:url(../images/Ico-DatePicker-Next-Arrow-40x40.svg) no-repeat center #fafafb;
+    background:url(public/wabiz/images/Ico-DatePicker-Next-Arrow-40x40.svg) no-repeat center #fafafb;
 }
 
 
@@ -2514,7 +2514,7 @@ input[type="radio"] {
 }
 .comp-datepicker.disabled .ico-calendar {
     z-index:2;
-    background:url(../images/Ico-Calendar-Disabled-16x16.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-Calendar-Disabled-16x16.svg) no-repeat;
 }
 .comp-datepicker.disabled .fc-2 {
     z-index:2;
@@ -2528,10 +2528,10 @@ input[type="radio"] {
     background:#f5f7f8;
 }
 .comp-datepicker.disabled .btn.btn-prev {
-    background:url(../images/Ico-DatePicker-Prev-Disabled-Arrow-40x40.svg) no-repeat center #f5f7f8;
+    background:url(public/wabiz/images/Ico-DatePicker-Prev-Disabled-Arrow-40x40.svg) no-repeat center #f5f7f8;
 }
 .comp-datepicker.disabled .btn.btn-next {
-    background:url(../images/Ico-DatePicker-Next-Disabled-Arrow-40x40.svg) no-repeat center #f5f7f8;
+    background:url(public/wabiz/images/Ico-DatePicker-Next-Disabled-Arrow-40x40.svg) no-repeat center #f5f7f8;
 }
 /* Disabled : End */
 
@@ -2609,7 +2609,7 @@ input[type="radio"] {
 .comp-help .list .ico-help {
     margin-top:2px;
     margin-right:12px;
-    background:url(../images/Ico-Help-16x16.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Ico-Help-16x16.svg) no-repeat 50% 50%;
     vertical-align:top;
 }
 .comp-help .list .fc-2 {
@@ -2654,7 +2654,7 @@ input[type="radio"] {
     z-index:1;
     width:20px;
     height:20px;
-    background:url(../images/Ico-Thumb-Video-20x20.svg) no-repeat 50% 50%;
+    background:url(public/wabiz/images/Ico-Thumb-Video-20x20.svg) no-repeat 50% 50%;
 }
 .comp-thumb .txt-size {
     display:none;
@@ -2717,17 +2717,17 @@ input[type="radio"] {
 .comp-no-data .ico-no-data {
     width:96px;
     height:96px;
-    background:url(../images/Ico-No-Data-96x96.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-No-Data-96x96.svg) no-repeat;
 }
 .comp-no-data .ico-no-search {
     width:120px;
     height:120px;
-    background:url(../images/Ico-No-Search-120x120.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-No-Search-120x120.svg) no-repeat;
 }
 .comp-no-data .ico-no-img {
     width:72px;
     height:72px;
-    background:url(../images/Ico-No-IMG-72x72.svg) no-repeat;
+    background:url(public/wabiz/images/Ico-No-IMG-72x72.svg) no-repeat;
 }
 
 
