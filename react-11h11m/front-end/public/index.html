@@ -6,87 +6,10 @@
   <meta name="robots" content="noindex">
   <meta name="googlebot" content="noindex">
   <meta name="yeti" content="noindex">
-  <link rel="shortcut icon" type="image/x-icon" href="/wabiz/images/favicon.png">
-  <title id="pageTitle"></title></title>
-
-  <script src="/wabiz/static/plugins/jquery-3.2.1/jquery-3.2.1.min.js"></script>
-  <script src="/wabiz/static/plugins/bootstrap-3.3.7/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="/wabiz/static/plugins/jquery-easyui-1.5.2/jquery.easyui.min.js"></script>
-  <script src="/wabiz/static/plugins/jquery-easyui-1.5.2/datagrid-detailview.js"></script>
-  <script src="/wabiz/static/plugins/jquery-easyui-1.5.2/datagrid-filter.js"></script>
-  <script src="/wabiz/static/plugins/jquery-easyui-1.5.2/datagrid-bufferview.js"></script>
-  <script src="/wabiz/static/plugins/AdminLTE-2.3.11/app.min.js"></script>
-
-
-  <script src="/wabiz/static/plugins/jquery-upload-file-4.0.10/jquery.uploadfile.min.js"></script>
-  <script src="/wabiz/static/plugins/select2-4.0.3/select2.full.min.js"></script>
-  <script src="/wabiz/static/plugins/alertify-1.10.0/alertify.min.js"></script>
-  <script src="/wabiz/static/plugins/moment-2.18.1/moment.min.js"></script>
-  <script src="/wabiz/static/plugins/daterangepicker-3.0.3/daterangepicker-custom.js"></script>
-  <script src="/wabiz/static/plugins/jquery-scrollbar-gh-pages-0.2.10/jquery.scrollbar.min.js"></script>
-  <script src="/wabiz/static/plugins/taggingJS-1.3.3/tagging.custom-1.1.js"></script>
-
-
-  <script src="/wabiz/script/config.js"></script>
-
-
-  <link rel="stylesheet" href="/wabiz/static/css/fonts/NotoSansKR/NotoSansKR.css">
-  <link rel="stylesheet" href="/wabiz/css/common.css">
-  <link rel="stylesheet" href="/wabiz/css/layout.css">
-  <link rel="stylesheet" href="/wabiz/css/plugin.css">
+  <title id="pageTitle"></title>
 </head>
 
-
-
 <body>
-<div class="wrap">
-  <header class="header"></header>
-  <div class="content">
-    <aside class="lnb sidebar"></aside>
-    <div class="inner-content">
-      <div class="content-header"></div>
-      <div class="content-body"></div>
-      <footer class="content-footer"></footer>
-    </div>
-  </div>
-</div>
-
-
-
-<script>
-  $(function() {
-    var content = location.search.substring(1);
-    var splitContent = content.split("?");
-    if(splitContent.length == 1){
-      console.log("변수 없는 페이지를 엽니다..");
-      $('.header').load('t-header.html');
-      $('.lnb.sidebar').load('t-sidebar.html');
-      $('.content-header').load('t-content-header.html');
-      $('.content-footer').load('t-content-footer.html');
-      if(splitContent[0] !== '') {
-        $('.content-body').load(splitContent[0] + '.html');
-      } else {
-        $('.content-body').load('t-content-body.html');
-      }
-    } else {
-      console.log("변수있는 페이지를 오픈합니다.");
-      $('.header').load('t-header.html');
-      $('.lnb.sidebar').load('t-sidebar.html');
-      $('.content-header').load('t-content-header.html');
-      $('.content-footer').load('t-content-footer.html');
-      if(splitContent[0] !== '') {
-        $('.content-body').load(splitContent[0] + '.html');
-      } else {
-        $('.content-body').load('t-content-body.html');
-      }
-    }
-  })
-</script>
-
+  <div class="wrap" id="root"></div>
 </body>
 </html>
-
-<script>
-  $('#pageTitle').text("와디즈 레이아웃");
-</script>
