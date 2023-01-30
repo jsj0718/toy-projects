@@ -1,6 +1,6 @@
 const ContentFooter = () => {
     return (
-        <div className="content-footer">
+        <footer className="content-footer">
             <ul className="company-info">
                 <li>
                     <span className="fz-13">와디즈(주)</span>
@@ -19,7 +19,7 @@ const ContentFooter = () => {
                 <li><a className="fz-13">이용 약관</a></li>
                 <li><a className="fz-13">개인정보 처리 방침</a></li>
             </ul>
-        </div>
+        </footer>
     )
 }
 

@@ -1,15 +1,11 @@
 import Header from "./header";
-import ContentHeader from "./contentHeader";
-import ContentFooter from "./contentFooter";
-import Sidebar from "./sidebar";
+import Content from "./content";
 
 const Layout = () => {
     return (
         <>
-            <Header/>
-            <Sidebar/>
-            <ContentHeader/>
-            <ContentFooter/>
+            <Header />
+            <Content />
         </>
     )
 }

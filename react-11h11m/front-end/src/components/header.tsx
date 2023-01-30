@@ -1,35 +1,30 @@
 const Header = () => {
     return (
-        <div className="header">
+        <header className="header">
             <h1 className="logo">
                 <a></a>
             </h1>
-
             <div className="user-info">
                 <div className="name">
-                    <span className="fz-14 fc-1 fw-medium">
-                        관리자명
-                    </span>
+        <span className="fz-14 fc-1 fw-medium">
+            관리자명
+        </span>
                 </div>
-
                 <a className="name">
-                    <span className="fz-14 fc-4">
-                        관리자 로그아웃
-                    </span>
+        <span className="fz-14 fc-4">
+            관리자 로그아웃
+        </span>
                 </a>
-
                 <a className="notify">
                     <i className="ico ico-notify"></i>
                     <span className="badge">99+</span>
                 </a>
-
                 <a className="biz-money">
                     <span className="auto-charge off">자동충전 <span className="eng">OFF</span></span>
                     <span className="auto-charge on">자동충전 <span className="eng">ON</span></span>
                     <span className="fz-14 fc-1 fw-medium">비즈머니</span>
                     <span className="fz-14 fc-2">₩9,999,999</span>
                 </a>
-
                 <div className="comp-dropdown shadow">
                     <a className="dropdown-toggle" data-toggle="dropdown">
                         <i className="ico ico-shadow"></i>
@@ -40,8 +35,8 @@ const Header = () => {
                             <div className="input-group comp-search">
                                 <div className="inner-input-group selected">
                                     <input type="text" className="tf-comm" placeholder="힌트 텍스트"/>
-                                    <i className="ico ico-search"></i>
-                                    <i className="ico ico-delete"></i>
+                                        <i className="ico ico-search"></i>
+                                        <i className="ico ico-delete"></i>
                                 </div>
                                 <ul className="opt-selectbox">
                                     <li className="opt-menu selected">
@@ -72,7 +67,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
     )
 }
 
