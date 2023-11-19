@@ -65,7 +65,7 @@ public class KakaoMessageController {
         headers.add("Authorization", String.format("Bearer %s", accessToken));
         headers.add("adAccountId", adAccountId);
 
-        HashMap<String, String> variables = new HashMap<>() {{
+        Map<String, String> variables = new HashMap<>() {{
             put("date1", "2023-11-06");
             put("date2", "2023-12-31");
             put("site_name1", "네이버");
@@ -76,9 +76,10 @@ public class KakaoMessageController {
             put("pc_url2", "https://www.google.com/");
         }};
 
-        LinkedMultiValueMap<String, String> body = new LinkedMultiValueMap<>();
-        body.add("phoneNumber", phoneNumber);
-        body.add("variables", objectMapper.writeValueAsString(variables));
+        Map<String, Object> body = new HashMap<>() {{
+            put("phoneNumber", phoneNumber);
+            put("variables", variables);
+        }};
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.postForEntity(url, new HttpEntity<>(body, headers), String.class);
