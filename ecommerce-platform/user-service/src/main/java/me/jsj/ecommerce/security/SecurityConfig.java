@@ -18,9 +18,7 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/h2-console/**").permitAll()
-                        .requestMatchers("/users/**").permitAll()
-                        .anyRequest().authenticated())
+                        .anyRequest().permitAll())
                 //H2-Console 등 프레임 옵션에 의한 접근 금지로 제외
                 .headers(header -> header
                         .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));

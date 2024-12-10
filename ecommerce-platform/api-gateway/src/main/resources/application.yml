@@ -13,8 +13,16 @@ spring:
             baseMessage: Spring Cloud Gateway Global Filter
             preLogger: true
             postLogger: true
-
       routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user-service/**
+        - id: first-service
+          uri: lb://FIRST-SERVICE
+#          uri: http://localhost:8081/
+          predicates:
+            - Path=/first-service/**
         # http://localhost:8081/first-service/** 호출
         - id: first-service
           uri: lb://FIRST-SERVICE
