@@ -14,6 +14,7 @@ spring:
       ddl-auto: create-drop
     show-sql: true
     generate-ddl: true
+    defer-datasource-initialization: true # 테이블 초기화 이후 스크립트 실행
   h2:
     console:
       enabled: true
