@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
         ModelMapper mapper = getMapper();
 
         UserEntity userEntity = userRepository.findByUserId(userId)
-                .orElseThrow(() -> new NotFoundException("Not found user by this userId"));
+                .orElseThrow(() -> new NotFoundException("User not found by this id: " + userId));
 
         UserDto userDto = mapper.map(userEntity, UserDto.class);
 

@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: catalog-service
+    name: order-service
   datasource:
     url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     driverClassName: org.h2.Driver
@@ -11,10 +11,8 @@ spring:
     password:
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
-    generate-ddl: true
-    defer-datasource-initialization: true # 테이블 초기화 이후 스크립트 실행
   h2:
     console:
       enabled: true
@@ -33,4 +31,4 @@ eureka:
 
 logging:
   level:
-    me.jsj.catalog: DEBUG
+    me.jsj.order: DEBUG
