@@ -1,7 +1,7 @@
-package me.jsj.ecommerce.dto;
+package me.jsj.user.dto;
 
 import lombok.Data;
-import me.jsj.ecommerce.vo.ResponseOrder;
+import me.jsj.user.vo.ResponseOrder;
 
 import java.time.LocalDateTime;
 import java.util.List;

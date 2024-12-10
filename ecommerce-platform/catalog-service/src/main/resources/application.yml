@@ -13,6 +13,7 @@ spring:
     hibernate:
       ddl-auto: create-drop
     show-sql: true
+    generate-ddl: true
   h2:
     console:
       enabled: true
@@ -30,3 +31,7 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
+
+logging:
+  level:
+    me.jsj.ecommerce: DEBUG

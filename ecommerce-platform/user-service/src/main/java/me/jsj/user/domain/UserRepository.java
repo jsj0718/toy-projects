@@ -1,4 +1,4 @@
-package me.jsj.ecommerce.domain;
+package me.jsj.user.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

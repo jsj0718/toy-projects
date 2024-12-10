@@ -1,4 +1,4 @@
-package me.jsj.ecommerce.security;
+package me.jsj.user.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

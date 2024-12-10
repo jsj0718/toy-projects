@@ -1,12 +1,12 @@
-package me.jsj.ecommerce.controller;
+package me.jsj.user.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.jsj.ecommerce.dto.UserDto;
-import me.jsj.ecommerce.service.UserService;
-import me.jsj.ecommerce.vo.Greeting;
-import me.jsj.ecommerce.vo.RequestUser;
-import me.jsj.ecommerce.vo.ResponseUser;
+import me.jsj.user.dto.UserDto;
+import me.jsj.user.service.UserService;
+import me.jsj.user.vo.Greeting;
+import me.jsj.user.vo.RequestUser;
+import me.jsj.user.vo.ResponseUser;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.core.env.Environment;

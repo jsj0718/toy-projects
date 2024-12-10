@@ -1,11 +1,11 @@
-package me.jsj.ecommerce.service;
+package me.jsj.user.service;
 
 import jakarta.ws.rs.NotFoundException;
 import lombok.RequiredArgsConstructor;
-import me.jsj.ecommerce.domain.UserEntity;
-import me.jsj.ecommerce.domain.UserRepository;
-import me.jsj.ecommerce.dto.UserDto;
-import me.jsj.ecommerce.vo.ResponseOrder;
+import me.jsj.user.domain.UserEntity;
+import me.jsj.user.domain.UserRepository;
+import me.jsj.user.dto.UserDto;
+import me.jsj.user.vo.ResponseOrder;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

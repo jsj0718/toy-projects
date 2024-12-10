@@ -1,4 +1,4 @@
-package me.jsj.ecommerce.vo;
+package me.jsj.user.vo;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;

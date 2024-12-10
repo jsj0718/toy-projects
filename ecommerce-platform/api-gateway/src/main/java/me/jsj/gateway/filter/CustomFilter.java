@@ -1,4 +1,4 @@
-package me.jsj.ecommerce.filter;
+package me.jsj.gateway.filter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;

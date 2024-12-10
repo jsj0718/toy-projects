@@ -1,4 +1,4 @@
-package me.jsj.ecommerce.vo;
+package me.jsj.user.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package me.jsj.ecommerce.vo;
+package me.jsj.user.vo;
 
 import lombok.Data;
 

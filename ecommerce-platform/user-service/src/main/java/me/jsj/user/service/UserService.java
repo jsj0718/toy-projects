@@ -1,6 +1,6 @@
-package me.jsj.ecommerce.service;
+package me.jsj.user.service;
 
-import me.jsj.ecommerce.dto.UserDto;
+import me.jsj.user.dto.UserDto;
 
 import java.util.List;
 
