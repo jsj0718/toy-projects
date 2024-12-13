@@ -38,6 +38,10 @@ logging:
   level:
     me.jsj.user: DEBUG
 
-token:
-  expiration_time: 86400000
-  secret: qO2c3TmHSrVnE+U9D6BpGXW7sXvI1n8k1s2jL8nM3s0xG9RZF9g5Uw3aV6QhZmN1YlkcYt5DJg0V9J8NnB8T9Q==
+management:
+  endpoints:
+    web:
+      exposure:
+        # refresh: 설정 정보 갱신 | health: 애플리케이션 기동 상태 확인 | beans: 사용하는 빈 확인
+        # httptrace: client 요청으로부터 microservice 호출 및 반환 상태 조회
+        include: refresh, health, beans

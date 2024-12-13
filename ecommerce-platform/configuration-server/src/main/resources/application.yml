@@ -1,0 +1,14 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: configuration-server
+  cloud:
+    config:
+      server:
+        git:
+#          uri: file:///Users/sejinjeong/dev/project/toy-projects/ecommerce-platform/git-local-repo
+          uri: file:///Users/sejinjeong/dev/project/toy-projects/ecommerce-platform/git-local-repo
+#          username: [your username]
+#          passphrase: [your password]
