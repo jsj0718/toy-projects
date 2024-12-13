@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: configuration-server
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
   profiles:
     active: native
   cloud:
@@ -17,3 +22,9 @@ spring:
           search-paths: "ecommerce-platform/config-repo"
 #          username: [your username]
 #          passphrase: [your password]
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, busrefresh
