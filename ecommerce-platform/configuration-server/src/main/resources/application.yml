@@ -4,11 +4,16 @@ server:
 spring:
   application:
     name: configuration-server
+  profiles:
+    active: native
   cloud:
     config:
       server:
+        native:
+          search-locations: file://${user.home}/dev/project/toy-projects/ecommerce-platform/native-config-repo
         git:
 #          uri: file:///Users/sejinjeong/dev/project/toy-projects/ecommerce-platform/git-local-repo
-          uri: file:///Users/sejinjeong/dev/project/toy-projects/ecommerce-platform/git-local-repo
+          uri: https://github.com/jsj0718/toy-projects.git
+          search-paths: "ecommerce-platform/config-repo"
 #          username: [your username]
 #          passphrase: [your password]
