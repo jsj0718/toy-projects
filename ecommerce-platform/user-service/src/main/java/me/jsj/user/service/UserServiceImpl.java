@@ -2,12 +2,15 @@ package me.jsj.user.service;
 
 import jakarta.ws.rs.NotFoundException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import me.jsj.user.client.OrderServiceClient;
 import me.jsj.user.domain.UserEntity;
 import me.jsj.user.domain.UserRepository;
 import me.jsj.user.dto.UserDto;
 import me.jsj.user.vo.ResponseOrder;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.core.env.Environment;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,11 +21,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
+
+    private final Environment env;
     private final BCryptPasswordEncoder passwordEncoder;
+
+//    private final RestTemplate restTemplate;
+    private final OrderServiceClient orderServiceClient;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -57,7 +66,23 @@ public class UserServiceImpl implements UserService {
 
         UserDto userDto = mapper.map(userEntity, UserDto.class);
 
-        ArrayList<ResponseOrder> orders = new ArrayList<>();
+        /* Use RestTemplate */
+//        String orderUrl = String.format(Objects.requireNonNull(env.getProperty("order-service.url")), userId);
+//        ResponseEntity<List<ResponseOrder>> responseOrdersResponse = restTemplate.exchange(
+//                orderUrl, HttpMethod.GET,
+//                null, new ParameterizedTypeReference<>() {});
+//        List<ResponseOrder> orders = responseOrdersResponse.getBody();
+
+        /* Use Feign Client */
+        /* Feign Client Exception handling (try-catch) */
+//        List<ResponseOrder> orders = null;
+//        try {
+//            orders = orderServiceClient.getOrders(userId);
+//        } catch (FeignException e) {
+//            log.error(e.getMessage());
+//        }
+
+        List<ResponseOrder> orders = orderServiceClient.getOrders(userId);
         userDto.setOrders(orders);
 
         return userDto;

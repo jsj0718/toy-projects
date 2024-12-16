@@ -41,7 +41,7 @@ greeting:
 
 logging:
   level:
-    me.jsj.user: DEBUG
+    me.jsj.user.client: DEBUG
 
 management:
   endpoints:
