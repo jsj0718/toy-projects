@@ -3,6 +3,8 @@ package me.jsj.order.controller;
 import lombok.RequiredArgsConstructor;
 import me.jsj.order.domain.OrderEntity;
 import me.jsj.order.dto.OrderDto;
+import me.jsj.order.messagequeue.KafkaProducer;
+import me.jsj.order.messagequeue.OrderProducer;
 import me.jsj.order.service.OrderService;
 import me.jsj.order.vo.RequestOrder;
 import me.jsj.order.vo.ResponseOrder;
@@ -14,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @RequestMapping("/order-service")
@@ -21,6 +24,8 @@ import java.util.List;
 public class OrderController {
     private final Environment env;
     private final OrderService orderService;
+    private final KafkaProducer kafkaProducer;
+    private final OrderProducer orderProducer;
 
     @GetMapping("/health-check")
     public String status() {
@@ -36,10 +41,19 @@ public class OrderController {
         OrderDto orderDto = mapper.map(orderDetails, OrderDto.class);
         orderDto.setUserId(userId);
 
-        OrderDto savedOrderdto = orderService.createOrder(orderDto);
+        /* JPA */
+//        OrderDto savedOrderdto = orderService.createOrder(orderDto);
+//        ResponseOrder response = mapper.map(savedOrderdto, ResponseOrder.class);
 
-        ResponseOrder response = mapper.map(savedOrderdto, ResponseOrder.class);
+        /* Kafka */
+        orderDto.setOrderId(UUID.randomUUID().toString());
+        orderDto.setTotalPrice(orderDetails.getQty() * orderDetails.getUnitPrice());
 
+        /* Send an order to the kafka */
+        kafkaProducer.send("example-catalog-topic", orderDto); //서로 다른 서비스 동기화
+        orderProducer.send("orders", orderDto); //같은 서비스 동기화
+
+        ResponseOrder response = mapper.map(orderDto, ResponseOrder.class);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
