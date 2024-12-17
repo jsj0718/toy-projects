@@ -1,5 +1,18 @@
 services:
-  ### Message Queue (Zookeeper, Kafka, Kafka Connect) ###
+  ### Message Queue (RabbitMQ, Zookeeper, Kafka, Kafka Connect) ###
+  rabbitmq:
+    image: rabbitmq:latest
+    hostname: rabbitmq
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"   # AMQP 포트
+      - "15672:15672" # 관리 UI 포트
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - ecommerce
+
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     hostname: zookeeper     # 컨테이너 내부에서 zookeeper를 'zookeeper' 호스트명으로 접근 가능
