@@ -1,4 +1,5 @@
 services:
+  ### Message Queue (Zookeeper, Kafka, Kafka Connect) ###
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     hostname: zookeeper     # 컨테이너 내부에서 zookeeper를 'zookeeper' 호스트명으로 접근 가능
@@ -84,6 +85,7 @@ services:
     networks:
       - ecommerce
 
+  ### RDB (Postgresql) ###
   db:
     image: postgres:14.5
     restart: always
@@ -97,6 +99,17 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
       # 호스트 볼륨(db-data)을 컨테이너 내부의 PGDATA 디렉토리에 매핑, 데이터 영속화
+    networks:
+      - ecommerce
+
+  ### 분산 추적 (Zipkin) ###
+  zipkin:
+    image: ghcr.io/openzipkin/zipkin-slim:${TAG:-latest}
+    container_name: zipkin
+    environment:
+      - STORAGE_TYPE=mem
+    ports:
+      - "9411:9411"
     networks:
       - ecommerce
 

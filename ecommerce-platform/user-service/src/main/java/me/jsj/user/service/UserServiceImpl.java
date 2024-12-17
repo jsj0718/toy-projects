@@ -10,6 +10,8 @@ import me.jsj.user.dto.UserDto;
 import me.jsj.user.vo.ResponseOrder;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -32,6 +34,9 @@ public class UserServiceImpl implements UserService {
 
 //    private final RestTemplate restTemplate;
     private final OrderServiceClient orderServiceClient;
+
+    // 빈 없으면 기본 구현체, 있으면 대체
+    private final CircuitBreakerFactory circuitBreakerFactory;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -82,7 +87,16 @@ public class UserServiceImpl implements UserService {
 //            log.error(e.getMessage());
 //        }
 
-        List<ResponseOrder> orders = orderServiceClient.getOrders(userId);
+//        List<ResponseOrder> orders = orderServiceClient.getOrders(userId);
+
+        log.info("Before call orders microservice");
+        CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitBreaker");
+        List<ResponseOrder> orders = circuitBreaker.run(
+                () -> orderServiceClient.getOrders(userId),
+                throwable -> new ArrayList<>()
+        );
+        log.info("After call orders microservice");
+
         userDto.setOrders(orders);
 
         return userDto;
