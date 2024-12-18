@@ -12,4 +12,4 @@ order-service:
     orders_is_empty: There is no item.
 
 gateway:
-  ip: 172.18.0.1
+  ip: 127.0.0.1
