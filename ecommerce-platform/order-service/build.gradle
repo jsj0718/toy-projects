@@ -40,6 +40,7 @@ dependencies {
 	implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
 	//서비스 통신 간에 traceId가 다른 경우 통일
 	implementation 'io.github.openfeign:feign-micrometer'
+	implementation 'io.micrometer:micrometer-registry-prometheus'
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

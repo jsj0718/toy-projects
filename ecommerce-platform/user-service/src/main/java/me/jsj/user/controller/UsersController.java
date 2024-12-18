@@ -1,5 +1,6 @@
 package me.jsj.user.controller;
 
+import io.micrometer.core.annotation.Timed;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.jsj.user.dto.UserDto;
@@ -26,6 +27,7 @@ public class UsersController {
     private final UserService userService;
 
     @GetMapping("/health-check")
+    @Timed(value = "users.status", longTask = true)
     public String status() {
         return "It's Working in User Service"
                 + ", port(local.server.port)=" + env.getProperty("local.server.port")
@@ -35,6 +37,7 @@ public class UsersController {
     }
 
     @GetMapping("/welcome")
+    @Timed(value = "users.welcome", longTask = true)
     public String welcome() {
         log.info(">>>>> @Value: {}", greeting.getMessage());
         log.info(">>>>> Environment: {}", env.getProperty("greeting.message"));
