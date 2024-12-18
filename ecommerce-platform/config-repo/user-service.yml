@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: '{cipher}AQCX5LJaGA3o+s+jjok0iEpdlcm9sG6dfpRSPsc2Y19jH5mMp9GsElP5N8LjDgZ5doxVEBMpwy6qwJn7CtM0DuyaD/BS0vlvn1S/2gv2TffZD6Y6RxgQ1rpRye07g8cXo/0SQi5soIIxN6IWHtdaqEkGPfEudmw7bC92hPg7n3I/Ku9UaJL58Y+ElO23qFhqWelNFhpYNOVjl3MvGw2pjWc5JXQ+0NrQ/swv1NBgBauoFgdl8e1wHYksglrQlUQp7AaAcpgbY0Nv94GPTgI9qsFcNA62lYgs4OQXpV3fnwNtU+WxDU79siAMFYKP82myV62kr7df3sCrSQnVLRO5jFSW87AbSAuL1HatT5pLVGMk3t6GAMqCRNIxGUiOCnI9qTs='
+    password: '{cipher}AQCDjSQT7PaEw6Jm2cOY22SuQXpcZ5CO+u34tuZLZVw5WrCx27MEUCFG8LPPGvs3h4/7/gfGD+8Wjnp7bzjs873nwdUPLoXi5aySVCUoyFM+xml5k7rG86FImXWKRqhwcTAUU2AKdF6CPqZkFMS9xkk8io85YljJwaMe+WnJ/NaooikDiJvLOpmgcizs0doDqjhefD5nEp016Qk9g5wPMsBh9N/QVt03zTRJDI2OMnJYl4dOwhqJGhk/v+90HJVNxGA+ePm0si0nmlU/e0dfFoMCNzJrvyn15nsXUK4NviW5kepRdD3tRzLd5CKDhS0BCrlBsM/D1SxIN7b9gEkEYRNKZik1UEHpdyuUO9+THGcqJ50ozzkvGZhoePJdixXzeX0='
+
+gateway:
+  ip: 127.0.0.1
+
+order-service:
+#  url: http://127.0.0.1:8000/order-service/%s/orders
+  url: http://order-service/order-service/%s/orders # microservice + url
+  exception:
+    orders_is_empty: There is no item.
