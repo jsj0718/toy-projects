@@ -1,4 +1,4 @@
-package me.jsj.ecommerce;
+package me.jsj.gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

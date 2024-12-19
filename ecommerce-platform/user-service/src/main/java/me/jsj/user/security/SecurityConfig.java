@@ -52,7 +52,10 @@ public class SecurityConfig {
                         .requestMatchers("/health-check").permitAll()
 //                        .requestMatchers("/**").access(this::hasIpAddress)
                         .requestMatchers("/**").access(
-                                new WebExpressionAuthorizationManager("hasIpAddress('127.0.0.1') or hasIpAddress('172.30.1.9')"))
+                                new WebExpressionAuthorizationManager(
+                                        // localhost, local inet ip, docker network
+                                        "hasIpAddress('127.0.0.1') or hasIpAddress('172.30.1.9') or hasIpAddress('172.18.0.0/16')"
+                                ))
                         .anyRequest().authenticated()
                 )
                 .authenticationManager(authenticationManager)

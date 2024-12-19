@@ -34,3 +34,5 @@ eureka:
 logging:
   level:
     me.jsj.catalog: DEBUG
+
+kafka-url: 172.18.0.101:29092

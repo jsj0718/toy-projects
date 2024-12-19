@@ -1,13 +1,13 @@
-package me.jsj.ecommerce;
+package me.jsj.catalog;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ServiceDiscoveryApplicationTests {
+class CatalogServiceApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }

@@ -52,7 +52,7 @@ public class OrderController {
 //        orderDto.setTotalPrice(orderDetails.getQty() * orderDetails.getUnitPrice());
 
         /* Send an order to the kafka */
-//        kafkaProducer.send("example-catalog-topic", orderDto); //서로 다른 서비스 동기화
+        kafkaProducer.send("example-catalog-topic", orderDto); //서로 다른 서비스 동기화
 //        orderProducer.send("orders", orderDto); //같은 서비스 동기화
 //        ResponseOrder response = mapper.map(orderDto, ResponseOrder.class);
 

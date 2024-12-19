@@ -1,10 +1,10 @@
-package me.jsj.ecommerce;
+package me.jsj.user;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CatalogServiceApplicationTests {
+class UserServiceApplicationTests {
 
     @Test
     void contextLoads() {
